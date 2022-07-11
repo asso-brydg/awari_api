@@ -1,24 +1,15 @@
 const mongoose = require("mongoose");
 
+const TownSchema = new mongoose.Schema({
 
-const CountrySchema = new mongoose.Schema({
-
-    code: {
+    IdTown: {
         type: String,
         required: true,
-        maxLength:2,
         unique:true
     },
-
     name: {
         type: String,
         required: true,
-    },
-
-    phoneCode: {
-        type: Number,
-        required: true,
-        unique:true
     },
     image:{
         type:String,
@@ -32,6 +23,10 @@ const CountrySchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    country:{
+        type:String,
+        required:true
+    },
    createdAt: {
         type: Date,
         required: true,
@@ -44,8 +39,7 @@ const CountrySchema = new mongoose.Schema({
         default: new Date()
     },
 
-
 })
 
 
-module.exports = mongoose.model("countries", CountrySchema);
+module.exports = mongoose.model("town", TownSchema);
