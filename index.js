@@ -7,5 +7,5 @@ app.listen(port, () => console.log("server runing"));
 
 
 app.get('/', (request, response) => {
-    response.send("Good for now and go dev");
+    response.send("Good for now and go dev creating dev branch");
 })
