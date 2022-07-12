@@ -1,3 +1,4 @@
+const { response } = require("express")
 var Town = require("../models/town_schema")
 
  
@@ -23,17 +24,15 @@ exports.create = (request, response)=>{
             response.send(data)
         })
         .catch(err=>{
-            response.status(500).send[{
-                message:err.message||"Erreur!!"
-            }]
+            response.status(500).send(err)
         })
 
 }
 
 exports.find = (request, response)=>{
-        Country.find()
-        .then(Country=>{
-            response.send(Country)
+        Town.find()
+        .then(Town=>{
+            response.send(Town)
         })
         .catch(error=>{
             response.status(500).send("il y'a erreur")
@@ -41,47 +40,46 @@ exports.find = (request, response)=>{
 }
 
 exports.findOne= async (request, response)=>{
-    if(!request?.params?.code){
+    if(!request?.params?.IdTown){
         return response.status(400).send('erreur')
        }
     
-       const country = await Country.findOne({code:request.params.code})
-       console.log(country)
-       if(!country){
+       const town = await Town.findOne({IdTown:request.params.IdTown})
+       if(!town){
         response.send('No exist')
        }else{
-        response.send(country)
+        response.send(town)
        }
 }
 
 exports.update= async (request, response)=>{
-   if(!request?.params?.code){
+   if(!request?.params?.IdTown){
     return response.status(400).send('erreur')
    }
 
-   const country = await Country.findOne({code:request.params.code}).exec()
-   if(!country){
+   const town = await Town.findOne({IdTown:request.params.IdTown}).exec()
+   if(!Town){
     response.send('No exist')
    }else{
-     country.code = request.body.code
-     country.name = request.body.name
-     country.phoneCode = request.body.phoneCode
-     country.image = request.body.image
-     country.description = request.body.description
-     country.gallerie = request.body.gallerie
-    const resultat = await country.save()
+     town.IdTown = request.body.IdTown
+     town.name = request.body.name
+     town.image = request.body.image
+     town.description = request.body.description
+     town.gallerie = request.body.gallerie
+     town.country = request.body.country
+    const resultat = await town.save()
     response.send(resultat)
    }
 }
 exports.delete= async (request, response)=>{
-    if(!request?.params?.code){
+    if(!request?.params?.IdTown){
         return response.status(400).send('erreur')
     }
-    const country = await Country.findOne({code:request.params.code})
-    if(!country){
+    const town = await Town.findOne({IdTown:request.params.IdTown})
+    if(!town){
         response.send("no exist")
     }else{
-        country.delete()
+        town.delete()
         response.send('suppression réussie')
     }
 } 

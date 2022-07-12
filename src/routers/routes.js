@@ -24,13 +24,13 @@ route.get('/country/findOne/:code', controllerCountry.findOne)
 //Routes pour ville
 route.post('/town/save', controllerTown.create)
 
-route.put('/town/update/:idTown', controllerTown.update)
+route.put('/town/update/:IdTown', controllerTown.update)
 
-route.delete('/town/delete/:idTown', controllerTown.delete)
+route.delete('/town/delete/:IdTown', controllerTown.delete)
 
 route.get('/town/find', controllerTown.find)
 
-route.get('/town/findOne/:idTown', controllerTown.findOne)
+route.get('/town/findOne/:IdTown', controllerTown.findOne)
 
 
 module.exports=route

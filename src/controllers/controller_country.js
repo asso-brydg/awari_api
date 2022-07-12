@@ -78,7 +78,7 @@ exports.delete= async (request, response)=>{
     if(!request?.params?.code){
         return response.status(400).send('erreur')
     }
-    const country = await Country.findOne({code:request.params.code})
+    const country = await Country.findOne({code:request.params.code}).exec()
     if(!country){
         response.send("no exist")
     }else{
