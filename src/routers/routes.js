@@ -2,6 +2,7 @@ const express = require("express");
 const route = express.Router()
 const controllerCountry = require("../controllers/controller_country")
 const controllerTown = require("../controllers/controller_town")
+const controllerCat = require("../controllers/controller_cat")
 
 
 //Home page
@@ -31,6 +32,17 @@ route.delete('/town/delete/:IdTown', controllerTown.delete)
 route.get('/town/find', controllerTown.find)
 
 route.get('/town/findOne/:IdTown', controllerTown.findOne)
+
+//Routes pour catégories
+route.post('/cat/save',controllerCat.create)
+
+route.put('/cat/update/:IdCat',controllerCat.update)
+
+route.delete('/cat/delete/:IdCat',controllerCat.delete)
+
+route.get('/cat/find',controllerCat.find)
+
+route.get('/cat/findOne/:IdCat',controllerCat.findOne)
 
 
 module.exports=route

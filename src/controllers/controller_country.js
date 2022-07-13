@@ -70,6 +70,7 @@ exports.update= async (request, response)=>{
      country.image = request.body.image
      country.description = request.body.description
      country.gallerie = request.body.gallerie
+     country.updatedAt = new Date()
     const resultat = await country.save()
     response.send(resultat)
    }

@@ -1,6 +1,4 @@
 const express = require("express");
-const Country = require("./src/models/country_schema");
-const Town = require("./src/models/town_schema");
 require("./src/database/connection");
 
 const app = express();

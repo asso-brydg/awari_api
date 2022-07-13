@@ -1,5 +1,5 @@
 const { response } = require("express")
-var Town = require("../models/town_schema")
+var Cat = require("../models/categorie_schema")
 
  
 exports.create = (request, response)=>{
@@ -8,17 +8,17 @@ exports.create = (request, response)=>{
         return
     }
      //new town
-     const town = new Town({
-        IdTown:request.body.IdTown,
+     const cat = new Cat({
+        IdCat:request.body.IdCat,
         name:request.body.name, 
         image:request.body.image, 
         description:request.body.description, 
         gallerie:request.body.gallerie,
-        country:request.body.country
+        tags:request.body.tags
     })
 
     //save town in the db
-    town
+    cat
         .save()
         .then(data=>{
             response.send(data)
@@ -30,9 +30,9 @@ exports.create = (request, response)=>{
 }
 
 exports.find = (request, response)=>{
-        Town.find()
-        .then(Town=>{
-            response.send(Town)
+        Cat.find()
+        .then(Cat=>{
+            response.send(Cat)
         })
         .catch(error=>{
             response.status(500).send("il y'a erreur")
@@ -40,47 +40,47 @@ exports.find = (request, response)=>{
 }
 
 exports.findOne= async (request, response)=>{
-    if(!request?.params?.IdTown){
+    if(!request?.params?.IdCat){
         return response.status(400).send('erreur')
        }
     
-       const town = await Town.findOne({IdTown:request.params.IdTown})
-       if(!town){
+       const cat = await Cat.findOne({IdCat:request.params.IdCat})
+       if(!cat){
         response.send('No exist')
        }else{
-        response.send(town)
+        response.send(cat)
        }
 }
 
 exports.update= async (request, response)=>{
-   if(!request?.params?.IdTown){
+   if(!request?.params?.IdCat){
     return response.status(400).send('erreur')
    }
 
-   const town = await Town.findOne({IdTown:request.params.IdTown}).exec()
-   if(!Town){
+   const cat = await Cat.findOne({IdCat:request.params.IdCat}).exec()
+   if(!Cat){
     response.send('No exist')
    }else{
-     town.IdTown = request.body.IdTown
-     town.name = request.body.name
-     town.image = request.body.image
-     town.description = request.body.description
-     town.gallerie = request.body.gallerie
-     town.country = request.body.country
-     town.updatedAt = new Date()
-    const resultat = await town.save()
+     cat.IdCat = request.body.IdCat
+     cat.name = request.body.name
+     cat.image = request.body.image
+     cat.description = request.body.description
+     cat.gallerie = request.body.gallerie
+     cat.tags = request.body.tags
+     cat.updatedAt = new Date()
+    const resultat = await cat.save()
     response.send(resultat)
    }
 }
 exports.delete= async (request, response)=>{
-    if(!request?.params?.IdTown){
+    if(!request?.params?.IdCat){
         return response.status(400).send('erreur')
     }
-    const town = await Town.findOne({IdTown:request.params.IdTown})
-    if(!town){
+    const cat = await Cat.findOne({IdCat:request.params.IdCat})
+    if(!cat){
         response.send("no exist")
     }else{
-        town.delete()
+        cat.delete()
         response.send('suppression réussie')
     }
 } 
