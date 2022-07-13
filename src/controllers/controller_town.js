@@ -1,13 +1,13 @@
 const { response } = require("express")
 var Town = require("../models/town_schema")
 
- 
+ //enrégistrer une ville dans bd
 exports.create = (request, response)=>{
     if(!request.body){
         response.status(400).send('Valeurs vide')
         return
     }
-     //new town
+     //nnouvelles villes
      const town = new Town({
         IdTown:request.body.IdTown,
         name:request.body.name, 
@@ -17,7 +17,7 @@ exports.create = (request, response)=>{
         country:request.body.country
     })
 
-    //save town in the db
+    //sauvergarder une ville dans la bd
     town
         .save()
         .then(data=>{
@@ -30,20 +30,23 @@ exports.create = (request, response)=>{
 }
 
 exports.find = (request, response)=>{
+    //rechercher la categorie
         Town.find()
         .then(Town=>{
+    //afficher le resultat de la recherche
             response.send(Town)
         })
         .catch(error=>{
             response.status(500).send("il y'a erreur")
         })
 }
-
+//chercher une ville par son identifiant
 exports.findOne= async (request, response)=>{
+        //vérifier si l'identifiant a été précisé
     if(!request?.params?.IdTown){
         return response.status(400).send('erreur')
        }
-    
+        //rechercher la ville correspondant à l'id
        const town = await Town.findOne({IdTown:request.params.IdTown})
        if(!town){
         response.send('No exist')
@@ -51,16 +54,18 @@ exports.findOne= async (request, response)=>{
         response.send(town)
        }
 }
-
+//mise à jour
 exports.update= async (request, response)=>{
+        //vérifier si l'identifiant a été précisé
    if(!request?.params?.IdTown){
     return response.status(400).send('erreur')
    }
-
+   // rechercher la ville correspondante à l'id
    const town = await Town.findOne({IdTown:request.params.IdTown}).exec()
    if(!Town){
     response.send('No exist')
    }else{
+        //récupérer les données de la requête et modifier les données de la ville trouvée plus haut
      town.IdTown = request.body.IdTown
      town.name = request.body.name
      town.image = request.body.image
@@ -72,6 +77,7 @@ exports.update= async (request, response)=>{
     response.send(resultat)
    }
 }
+//supprimer une ville
 exports.delete= async (request, response)=>{
     if(!request?.params?.IdTown){
         return response.status(400).send('erreur')

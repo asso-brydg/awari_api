@@ -3,6 +3,7 @@ const route = express.Router()
 const controllerCountry = require("../controllers/controller_country")
 const controllerTown = require("../controllers/controller_town")
 const controllerCat = require("../controllers/controller_cat")
+const controllerUser = require("../controllers/controller_user")
 
 
 //Home page
@@ -33,6 +34,7 @@ route.get('/town/find', controllerTown.find)
 
 route.get('/town/findOne/:IdTown', controllerTown.findOne)
 
+
 //Routes pour catégories
 route.post('/cat/save',controllerCat.create)
 
@@ -43,6 +45,18 @@ route.delete('/cat/delete/:IdCat',controllerCat.delete)
 route.get('/cat/find',controllerCat.find)
 
 route.get('/cat/findOne/:IdCat',controllerCat.findOne)
+
+
+//Routes pour catégories
+route.post('/user/save',controllerUser.create)
+
+route.put('/user/update/:IdUser',controllerUser.update)
+
+route.delete('/user/delete/:IdUser',controllerUser.delete)
+
+route.get('/user/find',controllerUser.find)
+
+route.get('/user/findOne/:IdUser',controllerUser.findOne)
 
 
 module.exports=route
