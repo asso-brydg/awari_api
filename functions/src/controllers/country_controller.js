@@ -1,5 +1,5 @@
 const { response } = require("express")
-var Country = require("../models/country_schema")
+var Country = require("../models/country_model")
 
 
 exports.create = (request, response) => {

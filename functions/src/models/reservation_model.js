@@ -2,48 +2,44 @@ const mongoose = require("mongoose");
 
 const ResSchema = new mongoose.Schema({
 
-    IdRes: {
-        type: String,
-        required: true,
-        unique:true
-    },
+   _id: mongoose.Schema.Types.ObjectId,
     meetingPlace:{
         type:String,
-        required:true,
+        required:false,
     },
     amount:{
         type:Number,
-        required:true,
+        required:false,
     },
     numberPersonne:{
         type:Number,
-        required:true,
+        required:false,
     },
     status:{
         type:String,
-        required:true
+        required:false
     },
     startDate:{
         type:Date,
-        required:true
+        required:false
     },
-    activities:{
+    activity:{
         type:String,
-        required:true
+        required:false
     },
     payementDay:{
         type:Date,
-        required:true
+        required:false
     },
    createdAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 
     updatedAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 

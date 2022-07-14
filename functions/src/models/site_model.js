@@ -2,48 +2,44 @@ const mongoose = require("mongoose");
 
 const SiteSchema = new mongoose.Schema({
 
-    IdSite: {
-        type: String,
-        required: true,
-        unique:true
-    },
+   _id: mongoose.Schema.Types.ObjectId,
     name: {
         type: String,
-        required: true,
+        required: false,
     },
     image:{
         type:String,
-        required:true,
+        required:false,
     },
     description:{
         type:String,
-        required:true,
+        required:false,
     },
     gallerie:{
         type:String,
-        required:true,
+        required:false,
     },
     videos:{
         type:String,
-        required:true
+        required:false
     },
-    town:{
+     city:{
         type:String,
-        required:true
+        required:false
     },
-    activities:{
+    activity:{
         type:String,
-        required:true
+        required:false
     },
    createdAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 
     updatedAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 

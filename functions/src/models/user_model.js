@@ -2,52 +2,48 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
 
-    IdUser: {
-        type: String,
-        required: true,
-        unique: true
-    },
+    _id:  mongoose.Schema.Types.ObjectId,
     firstName: {
         type: String,
-        required: true,
+        required: false,
     },
     name: {
         type: String,
-        required: true,
+        required: false,
     },
     email: {
         type: String,
-        required: true,
+        required: false,
     },
     password: {
         type: String,
-        required: true,
+        required: false,
     },
     adress: {
         type: String,
-        required: true
+        required: false
     },
     country: {
         type: String,
-        required: true
+        required: false
     },
     image: {
         type: String,
-        required: true
+        required: false
     },
     type: {
         type: String,
-        required: true
+        required: false
     },
     createdAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 
     updatedAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 

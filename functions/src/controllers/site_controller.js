@@ -1,5 +1,5 @@
 const { response } = require("express")
-var Res = require("../models/reservation_schema")
+var Site = require("../models/site_model")
 
   //enrégistrer un utilisateur dans la bd
 exports.create = (request, response)=>{
@@ -8,19 +8,19 @@ exports.create = (request, response)=>{
         return
     }
      //nouvel utilisateur
-     const res = new Res({
-        IdRes:request.body.IdRes,
-        meetingPlace:request.body.meetingPlace, 
-        amount:request.body.amount, 
-        numberPersonne:request.body.numberPersonne, 
-        status:request.body.status, 
-        payementDay:request.body.payementDay,
-        startDate:request.body.startDate,
-        activities:request.body.activities
+     const site = new Site({
+        IdExp:request.body.IdExp,
+        name:request.body.name, 
+        image:request.body.image, 
+        description:request.body.description, 
+        gallerie:request.body.gallerie, 
+        videos:request.body.videos,
+         city:request.body. city,
+        activity:request.body.activity
     })
 
     //sauvegarder l'utilisateur dans la db
-    res
+    site
         .save()
         .then(data=>{
             response.send(data)
@@ -33,10 +33,10 @@ exports.create = (request, response)=>{
 //afficher la liste des utilisateurs
 exports.find = (request, response)=>{
     //rechercher la categorie
-        Res.find()
-        .then(Res=>{
+        Site.find()
+        .then(Site=>{
             //afficher le resultat de la recherche
-            response.send(Res)
+            response.send(Site)
         })
         .catch(error=>{
             response.status(500).send("il y'a erreur")
@@ -45,52 +45,52 @@ exports.find = (request, response)=>{
 //chercher un utilisateur par son identifiant
 exports.findOne= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-    if(!request?.params?.IdRes){
+    if(!request?.params?.IdExp){
         return response.status(400).send('erreur')
        }
     //rechercher l'utilisateur correspondant à l'id
-       const res = await Res.findOne({IdRes:request.params.IdRes})
-       if(!res){
+       const site = await Site.findOne({IdExp:request.params.IdExp})
+       if(!site){
         response.send('No exist')
        }else{
-        response.send(res)
+        response.send(site)
        }
 }
 //mise à jour
 exports.update= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-   if(!request?.params?.IdRes){
+   if(!request?.params?.IdExp){
     return response.status(400).send('erreur')
    }
    // rechercher l'utilisateur correspondante à l'id
-   const res = await Res.findOne({IdCat:request.params.IdCat}).exec()
-   if(!res){
+   const site = await Site.findOne({ _id:request.params. _id}).exec()
+   if(!site){
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
-    res.IdRes = request.body.IdRes,
-    res.meetingPlace = request.body.meetingPlace, 
-    res.amount = request.body.amount, 
-    res.numberPersonne = request.body.numberPersonne, 
-    res.status = request.body.status, 
-    res.payementDay = request.body.payementDay,
-    res.startDate = request.body.startDate,
-    res.activities = request.body.activities,
-    res.updatedAt = new Date()
-    const resultat = await res.save()
+    site.IdExp = request.body.IdExp,
+    site.name = request.body.name, 
+    site.image = request.body.image, 
+    site.description = request.body.description, 
+    site.gallerie = request.body.gallerie, 
+    site.videos = request.body.videos,
+    site. city = request.body. city,
+    site.activity = request.body.activity,
+    site.updatedAt = new Date()
+    const resultat = await site.save()
     response.send(resultat)
    }
 }
 //supprimer un utilisateur
 exports.delete= async (request, response)=>{
-    if(!request?.params?.IdRes){
+    if(!request?.params?.IdExp){
         return response.status(400).send('erreur')
     }
-    const res = await Res.findOne({IdRes:request.params.IdRes})
-    if(!res){
+    const site = await Site.findOne({IdExp:request.params.IdExp})
+    if(!site){
         response.send("no exist")
     }else{
-        res.delete()
+        site.delete()
         response.send('suppression réussie')
     }
 } 

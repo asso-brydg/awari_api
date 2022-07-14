@@ -1,57 +1,53 @@
 const mongoose = require("mongoose");
 
-const activitySchema = new mongoose.Schema({
+const ActivtySchema = new mongoose.Schema({
 //TODO - Ajouter les options required
-    IdActivity: {
-        type: String,
-        required: true,
-        unique:true
-    },
+    _id:  mongoose.Schema.Types.ObjectId,
     type: {
         type: String,
-        required: true,
+        required: false,
     },
-    UniqPrice:{
+    uniqPrice:{
         type:Number,
-        required:true,
+        required:false,
     },
-    town:{
+    city:{
         type:String,
-        required:true,
+        required:false,
     },
     
     plan:{
         type:String,
-        required:true,
+        required:false,
     },
     duration:{
         type:String,
-        required:true
+        required:false
     },
     stories:{
         type:String,
-        required:true
+        required:false
     },
     note:{
         type:String,
-        required:true
+        required:false
     },
-    vehicle:{
+    vehicleAvailability:{
         type:Boolean,
-        required:true
+        required:false
     },
    createdAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
     updatedAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 
 })
 
 
-module.exports = mongoose.model("activities", activitySchema);
+module.exports = mongoose.model("activities", ActivtySchema);

@@ -1,5 +1,5 @@
 const { response } = require("express")
-var Exp = require("../models/exp_schema")
+var Experience = require("../models/experience_model")
 
   //enrégistrer un utilisateur dans la bd
 exports.create = (request, response)=>{
@@ -8,23 +8,23 @@ exports.create = (request, response)=>{
         return
     }
      //nouvel utilisateur
-     const exp = new Exp({
-        IdExp:request.body.IdExp,
+     const experience = new Experience({
+        _id:request.body._id,
         departureDate:request.body.departureDate, 
         duration:request.body.duration, 
         notes:request.body.notes, 
-        UniqPrice:request.body.UniqPrice, 
+        uniqPrice:request.body.uniqPrice, 
         info:request.body.info,
         type:request.body.type,
         tripPlan:request.body.tripPlan,
-        town:request.body.town,
+         city:request.body. city,
         stories:request.body.stories,
-        activities:request.body.activities,
-        vehicle:request.body.vehicle
+        activity:request.body.activity,
+        vehicleAvailability:request.body.vehicleAvailability
     })
 
     //sauvegarder l'utilisateur dans la db
-    exp
+    experience
         .save()
         .then(data=>{
             response.send(data)
@@ -37,10 +37,10 @@ exports.create = (request, response)=>{
 //afficher la liste des utilisateurs
 exports.find = (request, response)=>{
     //rechercher la categorie
-        Exp.find()
-        .then(Exp=>{
+        Experience.find()
+        .then(Experience=>{
             //afficher le resultat de la recherche
-            response.send(Exp)
+            response.send(Experience)
         })
         .catch(error=>{
             response.status(500).send("il y'a erreur")
@@ -49,56 +49,56 @@ exports.find = (request, response)=>{
 //chercher un utilisateur par son identifiant
 exports.findOne= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-    if(!request?.params?.IdExp){
+    if(!request?.params?._id){
         return response.status(400).send('erreur')
        }
     //rechercher l'utilisateur correspondant à l'id
-       const exp = await Exp.findOne({IdExp:request.params.IdExp})
-       if(!exp){
+       const experience = await Experience.findOne({_id:request.params._id})
+       if(!experience){
         response.send('No exist')
        }else{
-        response.send(exp)
+        response.send(experience)
        }
 }
 //mise à jour
 exports.update= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-   if(!request?.params?.IdExp){
+   if(!request?.params?._id){
     return response.status(400).send('erreur')
    }
    // rechercher l'utilisateur correspondante à l'id
-   const exp = await Exp.findOne({IdCat:request.params.IdCat}).exec()
-   if(!exp){
+   const experience = await Experience.findOne({ _id:request.params._id}).exc()
+   if(!experience){
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
-    exp.IdExp = request.body.IdExp,
-    exp.departureDate = request.body.departureDate, 
-    exp.duration = request.body.duration, 
-    exp.notes = request.body.notes, 
-    exp.UniqPrice = request.body.UniqPrice, 
-    exp.info = request.body.info,
-    exp.type = request.body.type,
-    exp.town=request.body.town,
-    exp.tripPlan = request.body.tripPlan,
-    exp.stories = request.body.stories,
-    exp.activities = request.body.activities,
-    exp.vehicle = request.body.vehicle,
-    exp.updatedAt = new Date()
-    const resultat = await exp.save()
+    experience._id = request.body._id,
+    experience.departureDate = request.body.departureDate, 
+    experience.duration = request.body.duration, 
+    experience.notes = request.body.notes, 
+    experience.uniqPrice = request.body.uniqPrice, 
+    experience.info = request.body.info,
+    experience.type = request.body.type,
+    experience.city=request.body.city,
+    experience.tripPlan = request.body.tripPlan,
+    experience.stories = request.body.stories,
+    experience.activity = request.body.activity,
+    experience.vehicleAvailability = request.body.vehicleAvailability,
+    experience.updatedAt = new Date()
+    const resultat = await experience.save()
     response.send(resultat)
    }
 }
 //supprimer un utilisateur
 exports.delete= async (request, response)=>{
-    if(!request?.params?.IdExp){
+    if(!request?.params?._id){
         return response.status(400).send('erreur')
     }
-    const exp = await Exp.findOne({IdExp:request.params.IdExp})
-    if(!exp){
+    const experience = await Experience.findOne({_id:request.params._id})
+    if(!experience){
         response.send("no exist")
     }else{
-        exp.delete()
+        experience.delete()
         response.send('suppression réussie')
     }
 } 

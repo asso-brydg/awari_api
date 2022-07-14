@@ -2,64 +2,60 @@ const mongoose = require("mongoose");
 
 const ExpSchema = new mongoose.Schema({
 
-    IdExp: {
-        type: String,
-        required: true,
-        unique:true
-    },
+   _id: mongoose.Schema.Types.ObjectId,
     departureDate: {
         type: Date,
-        required: true,
+        required: false,
     },
     duration:{
         type:String,
-        required:true,
+        required:false,
     },
     notes:{
         type:String,
-        required:true,
+        required:false,
     },
-    UniqPrice:{
+    uniqPrice:{
         type:Number,
-        required:true,
+        required:false,
     },
     info:{
         type:String,
-        required:true
+        required:false
     },
     type:{
         type:String,
-        required:true
+        required:false
     },
     tripPlan:{
         type:Number,
-        required:true
+        required:false
     },
-    town:{
+     city:{
         type:String,
-        required:true
+        required:false
     },
     stories:{
         type:String,
-        required:true
+        required:false
     },
-    activities:{
+    activity:{
         type:String,
-        required:true
+        required:false
     },
-    vehicle:{
+    vehicleAvailability:{
         type:Boolean,
-        required:true
+        required:false
     },
    createdAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 
     updatedAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 

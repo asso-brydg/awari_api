@@ -1,5 +1,5 @@
 const { response } = require("express")
-var Cat = require("../models/categorie_schema")
+var Category = require("../models/category_model")
 
   //enrégistrer une ville dans bd
 exports.create = (request, response)=>{
@@ -8,8 +8,8 @@ exports.create = (request, response)=>{
         return
     }
      //nouvelles categories
-     const cat = new Cat({
-        IdCat:request.body.IdCat,
+     const category = newCategory({
+      _id:request.body._id,
         name:request.body.name, 
         image:request.body.image, 
         description:request.body.description, 
@@ -18,7 +18,7 @@ exports.create = (request, response)=>{
     })
 
     //sauvegarder la categorie dans la db
-    cat
+   category
         .save()
         .then(data=>{
             response.send(data)
@@ -31,7 +31,7 @@ exports.create = (request, response)=>{
 //afficher la liste des catégories
 exports.find = (request, response)=>{
     //rechercher la categorie
-        Cat.find()
+       Category.find()
         .then(Cat=>{
             //afficher le resultat de la recherche
             response.send(Cat)
@@ -43,12 +43,12 @@ exports.find = (request, response)=>{
 //chercher une catégorie par son identifiant
 exports.findOne= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-    if(!request?.params?.IdCat){
+    if(!request?.params?._id){
         return response.status(400).send('erreur')
        }
     //rechercher la catégorie correspondant à l'id
-       const cat = await Cat.findOne({IdCat:request.params.IdCat})
-       if(!cat){
+       const category = awaitCategory.findOne({_id:request.params._id})
+       if(category){
         response.send('No exist')
        }else{
         response.send(cat)
@@ -57,36 +57,36 @@ exports.findOne= async (request, response)=>{
 //mise à jour
 exports.update= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-   if(!request?.params?.IdCat){
+   if(!request?.params?._id){
     return response.status(400).send('erreur')
    }
    // rechercher la catégorie correspondante à l'id
-   const cat = await Cat.findOne({IdCat:request.params.IdCat}).exec()
-   if(!cat){
+   const category = awaitCategory.findOne({_id:request.params._id}).exec()
+   if(!category){
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de la catégorie trouvée plus haut
-     cat.IdCat = request.body.IdCat
-     cat.name = request.body.name
-     cat.image = request.body.image
-     cat.description = request.body.description
-     cat.gallerie = request.body.gallerie
-     cat.tags = request.body.tags
-     cat.updatedAt = new Date()
-    const resultat = await cat.save()
+    category._id= request.body._id
+    category.name = request.body.name
+    category.image = request.body.image
+    category.description = request.body.description
+    category.gallerie = request.body.gallerie
+    category.tags = request.body.tags
+    category.updatedAt = new Date()
+    const resultat = awaitcategory.save()
     response.send(resultat)
    }
 }
 //supprimer une catégorie
 exports.delete= async (request, response)=>{
-    if(!request?.params?.IdCat){
+    if(!request?.params?._id){
         return response.status(400).send('erreur')
     }
-    const cat = await Cat.findOne({IdCat:request.params.IdCat})
-    if(!cat){
+    const category = awaitCategory.findOne ({ _id:request.params._id})
+    if(!category){
         response.send("no exist")
     }else{
-        cat.delete()
+       category.delete()
         response.send('suppression réussie')
     }
 } 

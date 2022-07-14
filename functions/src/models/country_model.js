@@ -5,42 +5,42 @@ const CountrySchema = new mongoose.Schema({
 
     code: {
         type: String,
-        required: true,
+        required: false,
         maxLength:2,
-        unique:true
+        unique:false
     },
 
     name: {
         type: String,
-        required: true,
+        required: false,
     },
 
     phoneCode: {
         type: Number,
-        required: true,
-        unique:true
+        required: false,
+        unique:false
     },
     image:{
         type:String,
-        required:true,
+        required:false,
     },
     description:{
         type:String,
-        required:true,
+        required:false,
     },
     gallerie:{
         type:String,
-        required:true,
+        required:false,
     },
    createdAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 
     updatedAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
 

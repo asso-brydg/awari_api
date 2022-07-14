@@ -2,25 +2,21 @@ const mongoose = require("mongoose");
 
 const NotifsSchema = new mongoose.Schema({
 
-    IdNotifs: {
-        type: String,
-        required: true,
-        unique:true
-    },
+   _id: mongoose.Schema.Types.ObjectId,
     content: {
         type: String,
-        required: true,
+        required: false,
     },
    sentAt: {
         type: Date,
-        required: true,
+        required: false,
         default: new Date()
     },
     user:{
         type:String,
-        required:true
+        required:false
     }
 })
 
 
-module.exports = mongoose.model("notifs", NotifsSchema);
+module.exports = mongoose.model("notifications", NotifsSchema);

@@ -1,5 +1,5 @@
 const { response } = require("express")
-var Activities = require("../models/activities_schema")
+var Activity = require("../models/activity_model")
 
   //enrégistrer une ville dans bd
 exports.create = (request, response)=>{
@@ -10,20 +10,20 @@ exports.create = (request, response)=>{
 
     //TODO- Implémenter les vérification des données 
      //nouvelles activitiesegories
-     const activities = new Activities({
-        IdActivity:request.body.IdActivity,
+     const activity = new Activity({
+        _id:request.body._id,
         type:request.body.type, 
-        UniqPrice:request.body.UniqPrice, 
-        town:request.body.town, 
+        uniqPrice:request.body.uniqPrice, 
+         city:request.body. city, 
         plan:request.body.plan,
         duration:request.body.duration,
         stories:request.body.stories,
         note:request.body.note,
-        vehicle:request.body.vehicle
+        vehicleAvailability:request.body.vehicleAvailability
     })
 
     //sauvegarder la activitiesegorie dans la db
-    activities
+    activity
         .save()
         .then(data=>{
             response.send(data)
@@ -36,10 +36,10 @@ exports.create = (request, response)=>{
 //afficher la liste des activitieségories
 exports.find = (request, response)=>{
     //rechercher la activitiesegorie
-        Activities.find()
-        .then(Activities=>{
+        Activity.find()
+        .then(Activity=>{
             //afficher le resultat de la recherche
-            response.send(Activities)
+            response.send(Activity)
         })
         .catch(error=>{
             response.status(500).send("il y'a erreur")
@@ -48,53 +48,53 @@ exports.find = (request, response)=>{
 //chercher une activitieségorie par son identifiant
 exports.findOne= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-    if(!request?.params?.IdActivity){
+    if(!request?.params?._id){
         return response.status(400).send('erreur')
        }
     //rechercher la activitieségorie correspondant à l'id
-       const activities = await Activities.findOne({IdActivity:request.params.IdActivity})
-       if(!activities){
+       const activity = await Activity.findOne({ _id:request.params._id})
+       if(!activity){
         response.send('No exist')
        }else{
-        response.send(activities)
+        response.send(activity)
        }
 }
 //mise à jour
 exports.update= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-   if(!request?.params?.IdActivity){
+   if(!request?.params?._id){
     return response.status(400).send('erreur')
    }
    // rechercher la activitieségorie correspondante à l'id
-   const activities = await Activities.findOne({IdActivity:request.params.IdActivity}).exec()
-   if(!activities){
+   const activity = await Activity.findOne({ _id:request.params._id}).exec()
+   if(!activity){
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de la activitieségorie trouvée plus haut
-    activities.IdActivity = request.body.IdActivity,
-    activities.type = request.body.type, 
-    activities.UniqPrice = request.body.UniqPrice, 
-    activities.town = request.body.town, 
-    activities.plan = request.body.plan,
-    activities.duration = request.body.duration,
-    activities.stories = request.body.stories,
-    activities.note = request.body.note,
-    activities.vehicle = request.body.vehicle
-    activities.updatedAt = new Date()
-    const resultat = await activities.save()
+    activity._id = request.body._id,
+    activity.type = request.body.type, 
+    activity.uniqPrice = request.body.uniqPrice, 
+    activity.city = request.body.city, 
+    activity.plan = request.body.plan,
+    activity.duration = request.body.duration,
+    activity.stories = request.body.stories,
+    activity.note = request.body.note,
+    activity.vehicleAvailability = request.body.vehicleAvailability
+    activity.updatedAt = new Date()
+    const resultat = await activity.save()
     response.send(resultat)
    }
 }
 //supprimer une activitieségorie
 exports.delete= async (request, response)=>{
-    if(!request?.params?.IdActivity){
+    if(!request?.params?._id){
         return response.status(400).send('erreur')
     }
-    const activities = await Activities.findOne({IdActivity:request.params.IdActivity})
-    if(!activities){
+    const activity = await Activity.findOne({ _id:request.params._id})
+    if(!activity){
         response.send("no exist")
     }else{
-        activities.delete()
+        activity.delete()
         response.send('suppression réussie')
     }
 } 
