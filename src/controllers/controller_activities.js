@@ -7,6 +7,8 @@ exports.create = (request, response)=>{
         response.status(400).send('Valeurs vide')
         return
     }
+
+    //TODO- Implémenter les vérification des données 
      //nouvelles activitiesegories
      const activities = new Activities({
         IdActivity:request.body.IdActivity,

@@ -9,6 +9,7 @@ const controllerActivities = require("../controllers/controller_activities")
 const controllerExp = require("../controllers/controller_exp")
 const controllerRes = require("../controllers/controller_res")
 const controllerSite = require("../controllers/controller_site")
+const JacqueController = require("../controllers/jacque_controller")
 
 
 
@@ -17,6 +18,10 @@ const controllerSite = require("../controllers/controller_site")
 route.get('/', (request, response) => {
     response.send("Good for now and go dev creating dev branch");
 })
+
+route.post('/jacques', JacqueController.create)
+route.get('/jacques', JacqueController.index)
+
 
 //Routes pour le pays
 route.post('/country/save', controllerCountry.create)

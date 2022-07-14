@@ -66,6 +66,8 @@ exports.update= async (request, response)=>{
     response.send('No exist')
    }else{
         //récupérer les données de la requête et modifier les données de la ville trouvée plus haut
+
+    //TODO- Verifier si le pays existe
      town.IdTown = request.body.IdTown
      town.name = request.body.name
      town.image = request.body.image

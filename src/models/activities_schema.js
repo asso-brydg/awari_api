@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const activitySchema = new mongoose.Schema({
-
+//TODO - Ajouter les options required
     IdActivity: {
         type: String,
         required: true,
@@ -19,6 +19,7 @@ const activitySchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    
     plan:{
         type:String,
         required:true,
