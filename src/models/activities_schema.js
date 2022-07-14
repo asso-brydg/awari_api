@@ -12,7 +12,7 @@ const activitySchema = new mongoose.Schema({
         required: true,
     },
     UniqPrice:{
-        type:Float,
+        type:Number,
         required:true,
     },
     town:{
@@ -44,7 +44,6 @@ const activitySchema = new mongoose.Schema({
         required: true,
         default: new Date()
     },
-
     updatedAt: {
         type: Date,
         required: true,

@@ -20,7 +20,7 @@ const ExpSchema = new mongoose.Schema({
         required:true,
     },
     UniqPrice:{
-        type:Float,
+        type:Number,
         required:true,
     },
     info:{

@@ -12,7 +12,7 @@ const ResSchema = new mongoose.Schema({
         required:true,
     },
     amount:{
-        type:Float,
+        type:Number,
         required:true,
     },
     numberPersonne:{
