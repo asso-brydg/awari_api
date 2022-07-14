@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ExpSchema = new mongoose.Schema({
+const ExperienceSchema = new mongoose.Schema({
 
    _id: mongoose.Schema.Types.ObjectId,
     departureDate: {
@@ -62,4 +62,4 @@ const ExpSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model("experience", ExpSchema);
+module.exports = mongoose.model("experiences", ExperienceSchema);

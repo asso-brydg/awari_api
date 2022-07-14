@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const TownSchema = new mongoose.Schema({
+const CitySchema = new mongoose.Schema({
 
   _id: mongoose.Schema.Types.ObjectId,
     name: {
@@ -38,4 +38,4 @@ const TownSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model(" city", TownSchema);
+module.exports = mongoose.model("cities", CitySchema);

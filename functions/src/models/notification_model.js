@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const NotifsSchema = new mongoose.Schema({
+const NotificationSchema = new mongoose.Schema({
 
    _id: mongoose.Schema.Types.ObjectId,
     content: {
@@ -19,4 +19,4 @@ const NotifsSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model("notifications", NotifsSchema);
+module.exports = mongoose.model("notifications", NotificationSchema);

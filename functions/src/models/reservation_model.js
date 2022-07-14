@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ResSchema = new mongoose.Schema({
+const ReservationSchema = new mongoose.Schema({
 
    _id: mongoose.Schema.Types.ObjectId,
     meetingPlace:{
@@ -46,4 +46,4 @@ const ResSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model("reservation", ResSchema);
+module.exports = mongoose.model("reservations", ReservationSchema);
