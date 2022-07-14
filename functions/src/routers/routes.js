@@ -24,112 +24,112 @@ route.get('/jacques', JacqueController.index)
 
 
 //Routes pour le pays
-route.post('/country', CountryController.create)
+route.post('/countries', CountryController.create)
 
-route.put('/country/update/:_id', CountryController.update)
+route.put('/countries/update/:_id', CountryController.update)
 
-route.delete('/country/delete/:_id', CountryController.delete)
+route.delete('/countries/delete/:_id', CountryController.delete)
 
-route.get('/country/index', CountryController.find)
+route.get('/countries/index', CountryController.find)
 
-route.get('/country/find-one/:_id', CountryController.findOne)
+route.get('/countries/find-one/:_id', CountryController.findOne)
 
 
 //Routes pour ville
-route.post('/ city', CityController.create)
+route.post('/ cities', CityController.create)
 
-route.put('/ city/update/:_id', CityController.update)
+route.put('/ cities/update/:_id', CityController.update)
 
-route.delete('/ city/delete/:_id', CityController.delete)
+route.delete('/ cities/delete/:_id', CityController.delete)
 
-route.get('/ city/index', CityController.find)
+route.get('/ cities/index', CityController.find)
 
-route.get('/ city/find-one/:_id', CityController.findOne)
+route.get('/ cities/find-one/:_id', CityController.findOne)
 
 
 //Routes pour catégories
-route.post('/category',CategoryController.create)
+route.post('/categories',CategoryController.create)
 
-route.put('/category/update/: _id',CategoryController.update)
+route.put('/categories/update/: _id',CategoryController.update)
 
-route.delete('/category/delete/: _id',CategoryController.delete)
+route.delete('/categories/delete/: _id',CategoryController.delete)
 
-route.get('/category/index',CategoryController.find)
+route.get('/categories/index',CategoryController.find)
 
-route.get('/category/find-one/: _id',CategoryController.findOne)
-
-
-//Routes pour utilisateurs
-route.post('/user',UserController.create)
-
-route.put('/user/update/: _id',UserController.update)
-
-route.delete('/user/delete/: _id',UserController.delete)
-
-route.get('/user/index',UserController.find)
-
-route.get('/user/find-one/: _id',UserController.findOne)
+route.get('/categories/find-one/: _id',CategoryController.findOne)
 
 
 //Routes pour utilisateurs
-route.post('/notification',NotificationController.create)
+route.post('/users',UserController.create)
 
-route.put('/notification/update/:_id',NotificationController.update)
+route.put('/users/update/: _id',UserController.update)
 
-route.delete('/notification/delete/:_id',NotificationController.delete)
+route.delete('/users/delete/: _id',UserController.delete)
 
-route.get('/notification/index',NotificationController.find)
+route.get('/users/index',UserController.find)
 
-route.get('/notification/find-one/:_id',NotificationController.findOne)
+route.get('/users/find-one/: _id',UserController.findOne)
+
+
+//Routes pour utilisateurs
+route.post('/notifications',NotificationController.create)
+
+route.put('/notifications/update/:_id',NotificationController.update)
+
+route.delete('/notifications/delete/:_id',NotificationController.delete)
+
+route.get('/notifications/index',NotificationController.find)
+
+route.get('/notifications/find-one/:_id',NotificationController.findOne)
 
 
 //Routes pour les activités
 route.post('/activities',ActivitiesController.create)
 
-route.put('/activity/update/:_id',ActivitiesController.update)
+route.put('/activities/update/:_id',ActivitiesController.update)
 
-route.delete('/activity/delete/:_id',ActivitiesController.delete)
+route.delete('/activities/delete/:_id',ActivitiesController.delete)
 
-route.get('/activity/index',ActivitiesController.find)
+route.get('/activities/index',ActivitiesController.find)
 
-route.get('/activity/find-one/:_id',ActivitiesController.findOne)
+route.get('/activities/find-one/:_id',ActivitiesController.findOne)
 
 
 //Routes pour les expériences
-route.post('/experience',ExperienceController.create)
+route.post('/experiences',ExperienceController.create)
 
-route.put('/experience/update/:_id',ExperienceController.update)
+route.put('/experiences/update/:_id',ExperienceController.update)
 
-route.delete('/experience/delete/:_id',ExperienceController.delete)
+route.delete('/experiences/delete/:_id',ExperienceController.delete)
 
-route.get('/experience/index',ExperienceController.find)
+route.get('/experiences/index',ExperienceController.find)
 
-route.get('/experience/find-one/:_id',ExperienceController.findOne)
+route.get('/experiences/find-one/:_id',ExperienceController.findOne)
 
 
 //Routes pour les reservations
-route.post('/reservation',ReservationController.create)
+route.post('/reservations',ReservationController.create)
 
-route.put('/reservation/update/:_id',ReservationController.update)
+route.put('/reservations/update/:_id',ReservationController.update)
 
-route.delete('/reservation/delete/:_id',ReservationController.delete)
+route.delete('/reservations/delete/:_id',ReservationController.delete)
 
-route.get('/reservation/index',ReservationController.find)
+route.get('/reservations/index',ReservationController.find)
 
-route.get('/reservation/find-one/:_id',ReservationController.findOne)
+route.get('/reservations/find-one/:_id',ReservationController.findOne)
 
 
 
 //Routes pour les sites
-route.post('/site',SiteController.create)
+route.post('/sites',SiteController.create)
 
-route.put('/site/update/:_id',SiteController.update)
+route.put('/sites/update/:_id',SiteController.update)
 
-route.delete('/site/delete/:_id',SiteController.delete)
+route.delete('/sites/delete/:_id',SiteController.delete)
 
-route.get('/site/index',SiteController.find)
+route.get('/sites/index',SiteController.find)
 
-route.get('/site/find-one/:_id',SiteController.findOne)
+route.get('/sites/find-one/:_id',SiteController.findOne)
 
 
 module.exports=route
