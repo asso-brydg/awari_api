@@ -9,17 +9,18 @@ exports.create = (request, response)=>{
     }
 
     //TODO- Implémenter les vérification des données 
+    //TODO- Compléter les autres attributs dans le constructeur
      //nouvelles activitiesegories
      const activity = new Activity({
         _id:request.body._id,
-        type:request.body.type, 
-        uniqPrice:request.body.uniqPrice, 
-         city:request.body. city, 
+        tags:request.body.tags, 
+        price:request.body.price, 
+        city_id:request.body. city_id, 
         plan:request.body.plan,
         duration:request.body.duration,
         stories:request.body.stories,
         note:request.body.note,
-        vehicleAvailability:request.body.vehicleAvailability
+        vehicleIsAvailable:request.body.vehicleIsAvailable
     })
 
     //sauvegarder la activitiesegorie dans la db

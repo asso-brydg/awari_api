@@ -42,16 +42,16 @@ exports.find = (request, response) => {
 }
 
 exports.findOne = async(request, response) => {
-    if (!request ?.params ?.code) {
+    if (!request ?.params ?._id) {
         return response.status(400).send('erreur')
     }
 
-    const country = await Country.findOne({ code: request.params.code })
+    const country = await Country.findOne({ code: request.params._id })
     console.log(country)
     if (!country) {
         response.send('No exist')
     } else {
-        response.send(typeof(country));
+        response.send(country);
     }
 }
 

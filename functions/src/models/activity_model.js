@@ -3,47 +3,61 @@ const mongoose = require("mongoose");
 const ActivtySchema = new mongoose.Schema({
 //TODO - Ajouter les options required
     _id:  mongoose.Schema.Types.ObjectId,
-    type: {
-        type: String,
-        required: false,
-    },
-    uniqPrice:{
-        type:Number,
-        required:false,
-    },
-    city:{
+    name:{
         type:String,
-        required:false,
+    },
+    excerpt:{
+        type:String,
+    },
+    description:{
+        type:String,
+    },
+    featuredImage:{
+        type:String,
+    },
+
+    // Adresse, ville etc .
+    location:{
+        type:String,
+    },
+
+    gallery: {
+        type: [String],
+    },
+    tags: {
+        type: [String],
+    },
+    price:{
+        type:Number,
+    },
+    city_id:{
+        type:String,
     },
     
     plan:{
         type:String,
-        required:false,
     },
+
+    //Convertir en heure ou en jour 
     duration:{
-        type:String,
-        required:false
+        type:Number,
     },
     stories:{
-        type:String,
-        required:false
+        type:[String],
     },
     note:{
-        type:String,
-        required:false
+        type:Number,
     },
-    vehicleAvailability:{
+    vehicleIsAvailable:{
         type:Boolean,
         required:false
     },
    createdAt: {
         type: Date,
-        required: false,
         default: new Date()
     },
     updatedAt: {
         type: Date,
-        required: false,
         default: new Date()
     },
 
