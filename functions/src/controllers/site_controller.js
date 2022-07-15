@@ -9,14 +9,14 @@ exports.create = (request, response)=>{
     }
      //nouvel utilisateur
      const site = new Site({
-        IdExp:request.body.IdExp,
+        _id:request.body._id,
         name:request.body.name, 
-        image:request.body.image, 
+        featuredImage:request.body.featuredImage, 
         description:request.body.description, 
-        gallerie:request.body.gallerie, 
+        gallery:request.body.gallery, 
         videos:request.body.videos,
-         city:request.body. city,
-        activity:request.body.activity
+        city_id:request.body. city_id,
+        activity_id:request.body.activity_id
     })
 
     //sauvegarder l'utilisateur dans la db
@@ -45,11 +45,11 @@ exports.find = (request, response)=>{
 //chercher un utilisateur par son identifiant
 exports.findOne= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-    if(!request?.params?.IdExp){
+    if(!request?.params?._id){
         return response.status(400).send('erreur')
        }
     //rechercher l'utilisateur correspondant à l'id
-       const site = await Site.findOne({IdExp:request.params.IdExp})
+       const site = await Site.findOne({_id:request.params._id})
        if(!site){
         response.send('No exist')
        }else{
@@ -59,7 +59,7 @@ exports.findOne= async (request, response)=>{
 //mise à jour
 exports.update= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
-   if(!request?.params?.IdExp){
+   if(!request?.params?._id){
     return response.status(400).send('erreur')
    }
    // rechercher l'utilisateur correspondante à l'id
@@ -68,14 +68,14 @@ exports.update= async (request, response)=>{
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
-    site.IdExp = request.body.IdExp,
+    site._id = request.body._id,
     site.name = request.body.name, 
-    site.image = request.body.image, 
+    site.featuredImage = request.body.featuredImage, 
     site.description = request.body.description, 
-    site.gallerie = request.body.gallerie, 
+    site.gallery = request.body.gallery, 
     site.videos = request.body.videos,
-    site. city = request.body. city,
-    site.activity = request.body.activity,
+    site. city_id = request.body. city_id,
+    site.activity_id = request.body.activity_id,
     site.updatedAt = new Date()
     const resultat = await site.save()
     response.send(resultat)
@@ -83,10 +83,10 @@ exports.update= async (request, response)=>{
 }
 //supprimer un utilisateur
 exports.delete= async (request, response)=>{
-    if(!request?.params?.IdExp){
+    if(!request?.params?._id){
         return response.status(400).send('erreur')
     }
-    const site = await Site.findOne({IdExp:request.params.IdExp})
+    const site = await Site.findOne({_id:request.params._id})
     if(!site){
         response.send("no exist")
     }else{

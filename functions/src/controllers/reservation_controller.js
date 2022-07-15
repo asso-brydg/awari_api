@@ -11,12 +11,12 @@ exports.create = (request, response)=>{
      const reservation = new Reservation({
         _id:request.body._id,
         meetingPlace:request.body.meetingPlace, 
-        amount:request.body.amount, 
+        price:request.body.price, 
         numberPersonne:request.body.numberPersonne, 
         status:request.body.status, 
         payementDay:request.body.payementDay,
         startDate:request.body.startDate,
-        activity:request.body.activity
+        activity_id_id:request.body.activity_id
     })
 
     //sauvegarder l'utilisateur dans la db
@@ -70,12 +70,12 @@ exports.update= async (request, response)=>{
     //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
     reservation._id = request.body._id,
     reservation.meetingPlace = request.body.meetingPlace, 
-    reservation.amount = request.body.amount, 
+    reservation.price = request.body.price, 
     reservation.numberPersonne = request.body.numberPersonne, 
     reservation.status = request.body.status, 
     reservation.payementDay = request.body.payementDay,
     reservation.startDate = request.body.startDate,
-    reservation.activity = request.body.activity,
+    reservation.activity_id = request.body.activity_id,
     reservation.updatedAt = new Date()
     const resultat = await reservation.save()
     response.send(resultat)

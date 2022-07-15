@@ -16,7 +16,7 @@ exports.create = (request, response)=>{
         password:request.body.password, 
         adress:request.body.adress,
         country:request.body.country,
-        image:request.body.image,
+        featuredImage:request.body.featuredImage,
         type:request.body.type
     })
 
@@ -76,7 +76,7 @@ exports.update= async (request, response)=>{
     user.password = request.body.password, 
     user.adress = request.body.adress,
     user.country = request.body.country,
-    user.image = request.body.image,
+    user.featuredImage = request.body.featuredImage,
     user.type = request.body.type
     user.updatedAt = new Date()
     const resultat = await user.save()

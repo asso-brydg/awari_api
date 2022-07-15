@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const ActivtySchema = new mongoose.Schema({
 //TODO - Ajouter les options required
     _id:  mongoose.Schema.Types.ObjectId,
@@ -15,17 +14,22 @@ const ActivtySchema = new mongoose.Schema({
     featuredImage:{
         type:String,
     },
-
     // Adresse, ville etc .
     location:{
         type:String,
     },
-
+   
     gallery: {
         type: [String],
     },
     tags: {
         type: [String],
+    },
+    departureDate: {
+        type: Date,
+    },
+    meetingAdress: {
+        type: Date,
     },
     price:{
         type:Number,
@@ -33,11 +37,9 @@ const ActivtySchema = new mongoose.Schema({
     city_id:{
         type:String,
     },
-    
     plan:{
         type:String,
     },
-
     //Convertir en heure ou en jour 
     duration:{
         type:Number,
@@ -59,8 +61,7 @@ const ActivtySchema = new mongoose.Schema({
     updatedAt: {
         type: Date,
         default: new Date()
-    },
-
+    }
 })
 
 

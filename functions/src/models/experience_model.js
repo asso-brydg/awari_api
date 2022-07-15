@@ -3,44 +3,58 @@ const mongoose = require("mongoose");
 const ExperienceSchema = new mongoose.Schema({
 
    _id: mongoose.Schema.Types.ObjectId,
+    name: {
+      type: String
+    },
     departureDate: {
         type: Date,
         required: false,
     },
+    excerpt:{
+        type:String,
+    },
+    description:{
+        type:String,
+    },
     duration:{
-        type:String,
-        required:false,
-    },
-    notes:{
-        type:String,
-        required:false,
-    },
-    uniqPrice:{
         type:Number,
         required:false,
     },
-    info:{
+    notes:{
+        type:Number,
+        required:false,
+    },
+    numberVotes:{
+        type:Number,
+        required:false,
+    },
+    featuredImage:{
         type:String,
-        required:false
+    },
+    gallery:{
+        type:[String],
+    },
+    price:{
+        type:Number,
+        required:false,
     },
     type:{
         type:String,
         required:false
     },
-    tripPlan:{
-        type:Number,
-        required:false
+    meetingAdress: {
+        type: Date,
     },
-     city:{
-        type:String,
+     city_id:{
+        type:[String],
         required:false
     },
     stories:{
-        type:String,
+        type:[String],
         required:false
     },
-    activity:{
-        type:String,
+    activity_id:{
+        type:[String],
         required:false
     },
     vehicleAvailability:{
@@ -52,13 +66,11 @@ const ExperienceSchema = new mongoose.Schema({
         required: false,
         default: new Date()
     },
-
     updatedAt: {
         type: Date,
         required: false,
         default: new Date()
-    },
-
+    }
 })
 
 

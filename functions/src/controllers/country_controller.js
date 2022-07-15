@@ -12,9 +12,9 @@ exports.create = (request, response) => {
         code: request.body.code,
         name: request.body.name,
         phoneCode: request.body.phoneCode,
-        image: request.body.image,
+        featuredImage: request.body.featuredImage,
         description: request.body.description,
-        gallerie: request.body.gallerie
+        gallery: request.body.gallery
     })
 
     //save country in the db
@@ -67,9 +67,9 @@ exports.update = async(request, response) => {
         country.code = request.body.code
         country.name = request.body.name
         country.phoneCode = request.body.phoneCode
-        country.image = request.body.image
+        country.featuredImage = request.body.featuredImage
         country.description = request.body.description
-        country.gallerie = request.body.gallerie
+        country.gallery = request.body.gallery
         country.updatedAt = new Date()
         const resultat = await country.save()
         response.send(resultat)

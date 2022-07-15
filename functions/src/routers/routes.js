@@ -32,7 +32,7 @@ route.delete('/countries/delete/:_id', CountryController.delete)
 
 route.get('/countries/index', CountryController.find)
 
-route.get('/countries/find-one/:_id', CountryController.findOne)
+route.get('/countries/:_id', CountryController.findOne)
 
 
 //Routes pour ville
@@ -44,7 +44,7 @@ route.delete('/ cities/delete/:_id', CityController.delete)
 
 route.get('/ cities/index', CityController.find)
 
-route.get('/ cities/find-one/:_id', CityController.findOne)
+route.get('/ cities/:_id', CityController.findOne)
 
 
 //Routes pour catégories
@@ -56,7 +56,7 @@ route.delete('/categories/delete/: _id',CategoryController.delete)
 
 route.get('/categories/index',CategoryController.find)
 
-route.get('/categories/find-one/: _id',CategoryController.findOne)
+route.get('/categories/: _id',CategoryController.findOne)
 
 
 //Routes pour utilisateurs
@@ -68,7 +68,7 @@ route.delete('/users/delete/: _id',UserController.delete)
 
 route.get('/users/index',UserController.find)
 
-route.get('/users/find-one/: _id',UserController.findOne)
+route.get('/users/: _id',UserController.findOne)
 
 
 //Routes pour utilisateurs
@@ -80,7 +80,7 @@ route.delete('/notifications/delete/:_id',NotificationController.delete)
 
 route.get('/notifications/index',NotificationController.find)
 
-route.get('/notifications/find-one/:_id',NotificationController.findOne)
+route.get('/notifications/:_id',NotificationController.findOne)
 
 
 //Routes pour les activités
@@ -92,7 +92,7 @@ route.delete('/activities/delete/:_id',ActivitiesController.delete)
 
 route.get('/activities/index',ActivitiesController.find)
 
-route.get('/activities/find-one/:_id',ActivitiesController.findOne)
+route.get('/activities/:_id',ActivitiesController.findOne)
 
 
 //Routes pour les expériences
@@ -104,7 +104,7 @@ route.delete('/experiences/delete/:_id',ExperienceController.delete)
 
 route.get('/experiences/index',ExperienceController.find)
 
-route.get('/experiences/find-one/:_id',ExperienceController.findOne)
+route.get('/experiences/:_id',ExperienceController.findOne)
 
 
 //Routes pour les reservations
@@ -116,7 +116,7 @@ route.delete('/reservations/delete/:_id',ReservationController.delete)
 
 route.get('/reservations/index',ReservationController.find)
 
-route.get('/reservations/find-one/:_id',ReservationController.findOne)
+route.get('/reservations/:_id',ReservationController.findOne)
 
 
 
@@ -129,7 +129,7 @@ route.delete('/sites/delete/:_id',SiteController.delete)
 
 route.get('/sites/index',SiteController.find)
 
-route.get('/sites/find-one/:_id',SiteController.findOne)
+route.get('/sites/:_id',SiteController.findOne)
 
 
 module.exports=route

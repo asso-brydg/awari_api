@@ -11,7 +11,7 @@ exports.create = (request, response)=>{
      const notification = new Notification({
         _id:request.body._id,
         content:request.body.content, 
-        user:request.body.user
+        user_id:request.body.user_id
     })
 
     //sauvegarder la notifsegorie dans la db
@@ -65,7 +65,7 @@ exports.update= async (request, response)=>{
     //récupérer les données de la requête et modifier les données de la notification trouvée plus haut
      notification._id = request.body._id
      notification.content = request.body.content
-     notification.user = request.body.user
+     notification.user_id = request.body.user_id
     const resultat = await notification.save()
     response.send(resultat)
    }

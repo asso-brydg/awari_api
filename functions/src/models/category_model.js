@@ -7,7 +7,7 @@ const CategorySchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    image:{
+    featuredImage:{
         type:String,
         required:false,
     },
@@ -15,12 +15,15 @@ const CategorySchema = new mongoose.Schema({
         type:String,
         required:false,
     },
-    gallerie:{
+    excerpt:{
         type:String,
+    },
+    gallery:{
+        type:[String],
         required:false,
     },
     tags:{
-        type:String,
+        type:[String],
         required:false
     },
    createdAt: {
@@ -28,7 +31,6 @@ const CategorySchema = new mongoose.Schema({
         required: false,
         default: new Date()
     },
-
     updatedAt: {
         type: Date,
         required: false,

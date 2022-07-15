@@ -11,9 +11,9 @@ exports.create = (request, response)=>{
      const category = newCategory({
       _id:request.body._id,
         name:request.body.name, 
-        image:request.body.image, 
+        featuredImage:request.body.featuredImage, 
         description:request.body.description, 
-        gallerie:request.body.gallerie,
+        gallery:request.body.gallery,
         tags:request.body.tags
     })
 
@@ -68,9 +68,9 @@ exports.update= async (request, response)=>{
     //récupérer les données de la requête et modifier les données de la catégorie trouvée plus haut
     category._id= request.body._id
     category.name = request.body.name
-    category.image = request.body.image
+    category.featuredImage = request.body.featuredImage
     category.description = request.body.description
-    category.gallerie = request.body.gallerie
+    category.gallery = request.body.gallery
     category.tags = request.body.tags
     category.updatedAt = new Date()
     const resultat = awaitcategory.save()

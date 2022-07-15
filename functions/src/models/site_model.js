@@ -7,28 +7,31 @@ const SiteSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    image:{
+    featuredImage:{
         type:String,
         required:false,
+    },
+    excerpt:{
+        type:String,
     },
     description:{
         type:String,
         required:false,
     },
-    gallerie:{
-        type:String,
+    gallery:{
+        type:[String],
         required:false,
     },
     videos:{
+        type:[String],
+        required:false
+    },
+    city_id:{
         type:String,
         required:false
     },
-     city:{
-        type:String,
-        required:false
-    },
-    activity:{
-        type:String,
+    activity_id:{
+        type:[String],
         required:false
     },
    createdAt: {
@@ -36,13 +39,11 @@ const SiteSchema = new mongoose.Schema({
         required: false,
         default: new Date()
     },
-
     updatedAt: {
         type: Date,
         required: false,
         default: new Date()
-    },
-
+    }
 })
 
 

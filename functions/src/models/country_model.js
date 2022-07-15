@@ -2,34 +2,35 @@ const mongoose = require("mongoose");
 
 
 const CountrySchema = new mongoose.Schema({
-
+    _id:  mongoose.Schema.Types.ObjectId,
     code: {
         type: String,
         required: false,
         maxLength:2,
-        unique:false
+        unique:true
     },
-
     name: {
         type: String,
         required: false,
     },
-
     phoneCode: {
         type: Number,
         required: false,
         unique:false
     },
-    image:{
+    featuredImage:{
         type:String,
         required:false,
+    },
+    excerpt:{
+        type:String,
     },
     description:{
         type:String,
         required:false,
     },
-    gallerie:{
-        type:String,
+    gallery:{
+        type:[String],
         required:false,
     },
    createdAt: {
@@ -37,14 +38,11 @@ const CountrySchema = new mongoose.Schema({
         required: false,
         default: new Date()
     },
-
     updatedAt: {
         type: Date,
         required: false,
         default: new Date()
-    },
-
-
+    }
 })
 
 

@@ -1,25 +1,26 @@
 const mongoose = require("mongoose");
-
 const CitySchema = new mongoose.Schema({
-
-  _id: mongoose.Schema.Types.ObjectId,
+    _id: mongoose.Schema.Types.ObjectId,
     name: {
         type: String,
         required: false,
     },
-    image:{
+    featuredImage:{
         type:String,
         required:false,
+    },
+    excerpt:{
+        type:String,
     },
     description:{
         type:String,
         required:false,
     },
-    gallerie:{
-        type:String,
+    gallery:{
+        type:[String],
         required:false,
     },
-    country:{
+    country_id:{
         type:String,
         required:false
     },
@@ -28,13 +29,11 @@ const CitySchema = new mongoose.Schema({
         required: false,
         default: new Date()
     },
-
     updatedAt: {
         type: Date,
         required: false,
         default: new Date()
-    },
-
+    }
 })
 
 

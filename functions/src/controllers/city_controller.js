@@ -11,9 +11,9 @@ exports.create = (request, response)=>{
      const  city = new  City({
         _id:request.body._id,
         name:request.body.name, 
-        image:request.body.image, 
+        featuredImage:request.body.featuredImage, 
         description:request.body.description, 
-        gallerie:request.body.gallerie,
+        gallery:request.body.gallery,
         country:request.body.country
     })
 
@@ -70,9 +70,9 @@ exports.update= async (request, response)=>{
     //TODO- Verifier si le pays existe
       city._id = request.body._id
       city.name = request.body.name
-      city.image = request.body.image
+      city.featuredImage = request.body.featuredImage
       city.description = request.body.description
-      city.gallerie = request.body.gallerie
+      city.gallery = request.body.gallery
       city.country = request.body.country
       city.updatedAt = new Date()
     const resultat = await  city.save()

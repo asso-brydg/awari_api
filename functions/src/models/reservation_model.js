@@ -7,7 +7,7 @@ const ReservationSchema = new mongoose.Schema({
         type:String,
         required:false,
     },
-    amount:{
+    price:{
         type:Number,
         required:false,
     },
@@ -19,24 +19,29 @@ const ReservationSchema = new mongoose.Schema({
         type:String,
         required:false
     },
-    startDate:{
-        type:Date,
+    type:{
+        type:String,
         required:false
     },
-    activity:{
-        type:String,
+    type_id:{
+        type:[String],
         required:false
     },
     payementDay:{
         type:Date,
         required:false
     },
+    payementDone:{
+        type:Boolean,
+    },
+    tripCanceled:{
+        type:Boolean
+    },
    createdAt: {
         type: Date,
         required: false,
         default: new Date()
     },
-
     updatedAt: {
         type: Date,
         required: false,

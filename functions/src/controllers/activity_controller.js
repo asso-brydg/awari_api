@@ -16,7 +16,6 @@ exports.create = (request, response)=>{
         tags:request.body.tags, 
         price:request.body.price, 
         city_id:request.body. city_id, 
-        plan:request.body.plan,
         duration:request.body.duration,
         stories:request.body.stories,
         note:request.body.note,
@@ -74,8 +73,8 @@ exports.update= async (request, response)=>{
     //récupérer les données de la requête et modifier les données de la activitieségorie trouvée plus haut
     activity._id = request.body._id,
     activity.type = request.body.type, 
-    activity.uniqPrice = request.body.uniqPrice, 
-    activity.city = request.body.city, 
+    activity.price = request.body.price, 
+    activity.city_id = request.body.city_id, 
     activity.plan = request.body.plan,
     activity.duration = request.body.duration,
     activity.stories = request.body.stories,
