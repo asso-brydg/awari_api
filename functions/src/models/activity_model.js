@@ -18,6 +18,16 @@ const ActivtySchema = new mongoose.Schema({
     location:{
         type:String,
     },
+
+    // loc: {
+    //     type: {
+    //         type: "String",
+    //         required: true,
+    //         enum: ['Point', 'LineString', 'Polygon'],
+    //         default: 'Point'
+    //     },
+    //     coordinates: [Number]
+    //   },
    
     gallery: {
         type: [String],
@@ -63,6 +73,14 @@ const ActivtySchema = new mongoose.Schema({
         default: new Date()
     }
 })
+
+
+
+// ActivtySchema.index({'loc': '2dsphere'});
+// ActivtySchema.index({'loc': '2d'});
+
+
+ActivtySchema.index({name: 'text', description: "text"});
 
 
 module.exports = mongoose.model("activities", ActivtySchema);

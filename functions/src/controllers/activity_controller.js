@@ -1,4 +1,5 @@
 const { response } = require("express")
+const mongoose = require("mongoose")
 var Activity = require("../models/activity_model")
 
   //enrégistrer une ville dans bd
@@ -12,7 +13,9 @@ exports.create = (request, response)=>{
     //TODO- Compléter les autres attributs dans le constructeur
      //nouvelles activitiesegories
      const activity = new Activity({
-        _id:request.body._id,
+        _id: new mongoose.Types.ObjectId,
+        name:request.body.name, 
+        description:request.body.description, 
         tags:request.body.tags, 
         price:request.body.price, 
         city_id:request.body. city_id, 
@@ -29,6 +32,7 @@ exports.create = (request, response)=>{
             response.send(data)
         })
         .catch(err=>{
+            console.log(err)
             response.status(500).send(err)
         })
 
@@ -59,6 +63,37 @@ exports.findOne= async (request, response)=>{
         response.send(activity)
        }
 }
+
+exports.search= async (request, response)=>{
+    //vérifier si l'identifiant a été précisé
+    // if(!request?.params?._id){
+    //     return response.status(400).send('erreur')
+    //    }
+    //rechercher la activitieségorie correspondant à l'id
+
+    Activity
+    .find(
+        { $text : { $search : "kpalime" } }, 
+        { score : { $meta: "textScore" } }
+    )
+    .sort({ score : { $meta : 'textScore' } })
+    .exec(function(err, results) {
+        response.send(results);
+    });
+
+
+
+
+    //    const activity = await Activity.findOne({ _id:request.params._id})
+    //    if(!activity){
+    //     response.send('No exist')
+    //    }else{
+    //     response.send(activity)
+    //    }
+}
+
+
+
 //mise à jour
 exports.update= async (request, response)=>{
     //vérifier si l'identifiant a été précisé

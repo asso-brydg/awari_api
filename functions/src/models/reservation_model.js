@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ReservationSchema = new mongoose.Schema({
-
+    //TODO- Ajouter invitedUsers dans les attributs de la classe
    _id: mongoose.Schema.Types.ObjectId,
     meetingPlace:{
         type:String,
@@ -11,7 +11,8 @@ const ReservationSchema = new mongoose.Schema({
         type:Number,
         required:false,
     },
-    numberPersonne:{
+    //Todo - Vérifier si le les attributs sont conformes dans le controller
+    numberPerson:{
         type:Number,
         required:false,
     },

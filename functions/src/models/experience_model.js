@@ -74,4 +74,7 @@ const ExperienceSchema = new mongoose.Schema({
 })
 
 
+ExperienceSchema.index({'$**': 'text'});
+
+
 module.exports = mongoose.model("experiences", ExperienceSchema);

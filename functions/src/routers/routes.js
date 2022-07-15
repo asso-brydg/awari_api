@@ -84,6 +84,9 @@ route.get('/notifications/:_id',NotificationController.findOne)
 
 
 //Routes pour les activités
+route.get('/activities/search',ActivitiesController.search)
+
+
 route.post('/activities',ActivitiesController.create)
 
 route.put('/activities/update/:_id',ActivitiesController.update)
