@@ -36,5 +36,6 @@ const CitySchema = new mongoose.Schema({
     }
 })
 
+CitySchema.index({name: 'text', description: "text", excerpt:"text", description:"text"});
 
 module.exports = mongoose.model("cities", CitySchema);

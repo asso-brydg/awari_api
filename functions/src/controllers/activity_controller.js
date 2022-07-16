@@ -15,10 +15,17 @@ exports.create = (request, response)=>{
      const activity = new Activity({
         _id: new mongoose.Types.ObjectId,
         name:request.body.name, 
+        excerpt:request.body.excerpt, 
         description:request.body.description, 
+        featuredImage:request.body.featuredImage, 
+        location:request.body.location, 
+        gallery:request.body.gallery, 
         tags:request.body.tags, 
+        departureDate:request.body.departureDate, 
+        meetingAdress:request.body.meetingAdress, 
         price:request.body.price, 
         city_id:request.body. city_id, 
+        plan:request.body. plan, 
         duration:request.body.duration,
         stories:request.body.stories,
         note:request.body.note,
@@ -70,10 +77,11 @@ exports.search= async (request, response)=>{
     //     return response.status(400).send('erreur')
     //    }
     //rechercher la activitieségorie correspondant à l'id
-
+    const req = request.body.index
+    console.log(req)
     Activity
     .find(
-        { $text : { $search : "kpalime" } }, 
+        { $text : { $search : req } }, 
         { score : { $meta: "textScore" } }
     )
     .sort({ score : { $meta : 'textScore' } })
@@ -106,15 +114,22 @@ exports.update= async (request, response)=>{
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de la activitieségorie trouvée plus haut
-    activity._id = request.body._id,
-    activity.type = request.body.type, 
+    activity.name = request.body.name, 
+    activity.excerpt = request.body.excerpt, 
+    activity.description = request.body.description, 
+    activity.featuredImage = request.body.featuredImage, 
+    activity.location = request.body.location, 
+    activity.gallery = request.body.gallery, 
+    activity.tags = request.body.tags, 
+    activity.departureDate = request.body.departureDate, 
+    activity.meetingAdress = request.body.meetingAdress, 
     activity.price = request.body.price, 
     activity.city_id = request.body.city_id, 
     activity.plan = request.body.plan,
     activity.duration = request.body.duration,
     activity.stories = request.body.stories,
     activity.note = request.body.note,
-    activity.vehicleAvailability = request.body.vehicleAvailability
+    activity.vehicleIsAvailable = request.body.vehicleIsAvailable
     activity.updatedAt = new Date()
     const resultat = await activity.save()
     response.send(resultat)

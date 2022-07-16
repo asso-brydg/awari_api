@@ -9,10 +9,11 @@ exports.create = (request, response)=>{
     }
      //nouvelles categories
      const category = newCategory({
-      _id:request.body._id,
+         _id: new mongoose.Types.ObjectId,
         name:request.body.name, 
         featuredImage:request.body.featuredImage, 
         description:request.body.description, 
+        excerpt:request.body.excerpt, 
         gallery:request.body.gallery,
         tags:request.body.tags
     })
@@ -66,12 +67,12 @@ exports.update= async (request, response)=>{
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de la catégorie trouvée plus haut
-    category._id= request.body._id
-    category.name = request.body.name
-    category.featuredImage = request.body.featuredImage
-    category.description = request.body.description
-    category.gallery = request.body.gallery
-    category.tags = request.body.tags
+    category.name = request.body.name,
+    category.featuredImage = request.body.featuredImage,
+    category.description = request.body.description,
+    category.excerpt = request.body.excerpt,
+    category.gallery = request.body.gallery,
+    category.tags = request.body.tags,
     category.updatedAt = new Date()
     const resultat = awaitcategory.save()
     response.send(resultat)

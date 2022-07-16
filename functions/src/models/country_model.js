@@ -45,5 +45,6 @@ const CountrySchema = new mongoose.Schema({
     }
 })
 
+CountrySchema.index({name: 'text', code: "text", excerpt:"text", description:"text",phoneCode:"text"});
 
 module.exports = mongoose.model("countries", CountrySchema);

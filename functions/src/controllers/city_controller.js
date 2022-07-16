@@ -9,12 +9,13 @@ exports.create = (request, response)=>{
     }
      //nnouvelles villes
      const  city = new  City({
-        _id:request.body._id,
-        name:request.body.name, 
-        featuredImage:request.body.featuredImage, 
-        description:request.body.description, 
-        gallery:request.body.gallery,
-        country:request.body.country
+        _id: new mongoose.Types.ObjectId,
+      name : request.body.name,
+      featuredImage : request.body.featuredImage,
+      excerpt : request.body.excerpt,
+      description : request.body.description,
+      gallery : request.body.gallery,
+      country_id : request.body.country_id,
     })
 
     //sauvergarder une ville dans la bd
@@ -68,12 +69,12 @@ exports.update= async (request, response)=>{
         //récupérer les données de la requête et modifier les données de la ville trouvée plus haut
 
     //TODO- Verifier si le pays existe
-      city._id = request.body._id
       city.name = request.body.name
       city.featuredImage = request.body.featuredImage
+      city.excerpt = request.body.excerpt
       city.description = request.body.description
       city.gallery = request.body.gallery
-      city.country = request.body.country
+      city.country_id = request.body.country_id
       city.updatedAt = new Date()
     const resultat = await  city.save()
     response.send(resultat)

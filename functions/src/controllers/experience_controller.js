@@ -9,18 +9,24 @@ exports.create = (request, response)=>{
     }
      //nouvel utilisateur
      const experience = new Experience({
-        _id:request.body._id,
-        departureDate:request.body.departureDate, 
-        duration:request.body.duration, 
-        notes:request.body.notes, 
-        price:request.body.price, 
-        info:request.body.info,
-        type:request.body.type,
-        tripPlan:request.body.tripPlan,
-         city_id:request.body. city_id,
-        stories:request.body.stories,
-        activity:request.body.activity,
-        vehicleAvailability:request.body.vehicleAvailability
+     _id: new mongoose.Types.ObjectId,
+    name : request.body.name, 
+    departureDate : request.body.departureDate, 
+    excerpt : request.body.excerpt, 
+    description : request.body.description, 
+    duration : request.body.duration, 
+    notes : request.body.notes, 
+    numberVotes : request.body.numberVotes, 
+    featuredImage : request.body.featuredImage, 
+    gallery : request.body.gallery, 
+    tags : request.body.tags, 
+    price : request.body.price, 
+    type : request.body.type,
+    meetingAdress : request.body.meetingAdress,
+    city_id : request.body.city_id,
+    stories : request.body.stories,
+    activity_id : request.body.activity_id,
+    vehicleIsAvailable : request.body.vehicleIsAvailable,
     })
 
     //sauvegarder l'utilisateur dans la db
@@ -72,17 +78,23 @@ exports.update= async (request, response)=>{
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
-    experience._id = request.body._id,
+    experience.name = request.body.name, 
     experience.departureDate = request.body.departureDate, 
+    experience.excerpt = request.body.excerpt, 
+    experience.description = request.body.description, 
     experience.duration = request.body.duration, 
     experience.notes = request.body.notes, 
+    experience.numberVotes = request.body.numberVotes, 
+    experience.featuredImage = request.body.featuredImage, 
+    experience.gallery = request.body.gallery, 
+    experience.tags = request.body.tags, 
     experience.price = request.body.price, 
     experience.type = request.body.type,
+    experience.meetingAdress = request.body.meetingAdress,
     experience.city_id=request.body.city_id,
-    experience.tripPlan = request.body.tripPlan,
     experience.stories = request.body.stories,
     experience.activity_id = request.body.activity_id,
-    experience.vehicleAvailability = request.body.vehicleAvailability,
+    experience.vehicleIsAvailable = request.body.vehicleIsAvailable,
     experience.updatedAt = new Date()
     const resultat = await experience.save()
     response.send(resultat)

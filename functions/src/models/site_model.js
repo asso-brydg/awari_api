@@ -22,6 +22,10 @@ const SiteSchema = new mongoose.Schema({
         type:[String],
         required:false,
     },
+    tags:{
+        type:[String],
+        required:false,
+    },
     videos:{
         type:[String],
         required:false
@@ -45,6 +49,8 @@ const SiteSchema = new mongoose.Schema({
         default: new Date()
     }
 })
+
+SiteSchema.index({name: 'text', description: "text", excerpt:"text", tags:"text"});
 
 
 module.exports = mongoose.model("sites", SiteSchema);

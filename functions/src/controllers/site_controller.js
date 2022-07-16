@@ -9,14 +9,16 @@ exports.create = (request, response)=>{
     }
      //nouvel utilisateur
      const site = new Site({
-        _id:request.body._id,
-        name:request.body.name, 
-        featuredImage:request.body.featuredImage, 
-        description:request.body.description, 
-        gallery:request.body.gallery, 
-        videos:request.body.videos,
-        city_id:request.body. city_id,
-        activity_id:request.body.activity_id
+        _id: new mongoose.Types.ObjectId,
+        name : request.body.name, 
+        featuredImage : request.body.featuredImage, 
+        excerpt : request.body.excerpt, 
+        description : request.body.description, 
+        gallery : request.body.gallery, 
+        tags : request.body.tags, 
+        videos : request.body.videos,
+        city_id : request.body. city_id,
+        activity_id : request.body.activity_id,
     })
 
     //sauvegarder l'utilisateur dans la db
@@ -68,11 +70,12 @@ exports.update= async (request, response)=>{
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
-    site._id = request.body._id,
     site.name = request.body.name, 
     site.featuredImage = request.body.featuredImage, 
+    site.excerpt = request.body.excerpt, 
     site.description = request.body.description, 
     site.gallery = request.body.gallery, 
+    site.tags = request.body.tags, 
     site.videos = request.body.videos,
     site. city_id = request.body. city_id,
     site.activity_id = request.body.activity_id,

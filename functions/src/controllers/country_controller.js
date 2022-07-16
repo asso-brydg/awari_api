@@ -13,6 +13,7 @@ exports.create = (request, response) => {
         name: request.body.name,
         phoneCode: request.body.phoneCode,
         featuredImage: request.body.featuredImage,
+        excerpt: request.body.excerpt,
         description: request.body.description,
         gallery: request.body.gallery
     })
@@ -68,6 +69,7 @@ exports.update = async(request, response) => {
         country.name = request.body.name
         country.phoneCode = request.body.phoneCode
         country.featuredImage = request.body.featuredImage
+        country.excerpt = request.body.excerpt
         country.description = request.body.description
         country.gallery = request.body.gallery
         country.updatedAt = new Date()

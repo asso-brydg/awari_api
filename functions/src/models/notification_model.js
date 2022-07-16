@@ -4,27 +4,32 @@ const NotificationSchema = new mongoose.Schema({
 
    _id: mongoose.Schema.Types.ObjectId,
    title:{
-    type:String,
-    required:false
-},
+         type:String,
+         required:false
+    },
     content: {
         type: String,
         required: false,
     },
-   sentAt: {
-        type: Date,
-        required: false,
-        default: new Date()
-    },
-    user:{
-        type:String,
+    receiver_id:{
+        type:[String],
         required:false
     },
 
     sender_id:{
         type:String,
         required:false
-    }
+    },
+    createdAt: {
+        type: Date,
+        required: false,
+        default: new Date()
+    },
+    updatedAt: {
+        type: Date,
+        required: false,
+        default: new Date()
+    },
 
     //todo - Ajouter created at updated at
 })

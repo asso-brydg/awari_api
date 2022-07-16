@@ -9,9 +9,11 @@ exports.create = (request, response)=>{
     }
      //nouvelles notifsegories
      const notification = new Notification({
-        _id:request.body._id,
+        _id: new mongoose.Types.ObjectId,
+        title:request.body.title, 
         content:request.body.content, 
-        user_id:request.body.user_id
+        receiver_id:request.body.receiver_id,
+        sender_id:request.body.sender_id
     })
 
     //sauvegarder la notifsegorie dans la db
@@ -63,9 +65,11 @@ exports.update= async (request, response)=>{
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de la notification trouvée plus haut
-     notification._id = request.body._id
+     notification.title = request.body.title
      notification.content = request.body.content
-     notification.user_id = request.body.user_id
+     notification.receiver_id = request.body.receiver_id
+     notification.sender_id = request.body.sender_id
+     notification.updatedAt = new Dat()
     const resultat = await notification.save()
     response.send(resultat)
    }

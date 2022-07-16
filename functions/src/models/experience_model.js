@@ -34,6 +34,9 @@ const ExperienceSchema = new mongoose.Schema({
     gallery:{
         type:[String],
     },
+    tags:{
+        type:[String],
+    },
     price:{
         type:Number,
         required:false,
@@ -57,7 +60,7 @@ const ExperienceSchema = new mongoose.Schema({
         type:[String],
         required:false
     },
-    vehicleAvailability:{
+    vehicleIsAvailable:{
         type:Boolean,
         required:false
     },
@@ -74,7 +77,7 @@ const ExperienceSchema = new mongoose.Schema({
 })
 
 
-ExperienceSchema.index({'$**': 'text'});
+ExperienceSchema.index({name: 'text', description: "text", excerpt:"text", tags:"text"});
 
 
 module.exports = mongoose.model("experiences", ExperienceSchema);

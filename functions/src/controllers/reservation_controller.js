@@ -9,14 +9,15 @@ exports.create = (request, response)=>{
     }
      //nouvel utilisateur
      const reservation = new Reservation({
-        _id:request.body._id,
-        meetingPlace:request.body.meetingPlace, 
-        price:request.body.price, 
-        numberPersonne:request.body.numberPersonne, 
-        status:request.body.status, 
-        payementDay:request.body.payementDay,
-        startDate:request.body.startDate,
-        activity_id_id:request.body.activity_id
+        _id: new mongoose.Types.ObjectId,
+        meetingPlace : request.body.meetingPlace, 
+        price : request.body.price, 
+        numberPersonne : request.body.numberPersonne, 
+        type : request.body.type, 
+        type_id : request.body.type_id, 
+        payementDay : request.body.payementDay,
+        payementDone : request.body.payementDone,
+        tripCanceled : request.body.tripCanceled,
     })
 
     //sauvegarder l'utilisateur dans la db
@@ -68,14 +69,14 @@ exports.update= async (request, response)=>{
     response.send('No exist')
    }else{
     //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
-    reservation._id = request.body._id,
     reservation.meetingPlace = request.body.meetingPlace, 
     reservation.price = request.body.price, 
     reservation.numberPersonne = request.body.numberPersonne, 
-    reservation.status = request.body.status, 
+    reservation.type = request.body.type, 
+    reservation.type_id = request.body.type_id, 
     reservation.payementDay = request.body.payementDay,
-    reservation.startDate = request.body.startDate,
-    reservation.activity_id = request.body.activity_id,
+    reservation.payementDone = request.body.payementDone,
+    reservation.tripCanceled = request.body.tripCanceled,
     reservation.updatedAt = new Date()
     const resultat = await reservation.save()
     response.send(resultat)
