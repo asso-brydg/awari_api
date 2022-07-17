@@ -7,26 +7,22 @@ const CitySchema = new mongoose.Schema({
     },
     featuredImage:{
         type:String,
-        required:false,
     },
     excerpt:{
         type:String,
     },
     description:{
         type:String,
-        required:false,
     },
     gallery:{
         type:[String],
-        required:false,
     },
     country_id:{
         type:String,
-        required:false
+        required:true
     },
    createdAt: {
         type: Date,
-        required: false,
         default: new Date()
     },
     updatedAt: {

@@ -1,13 +1,13 @@
 const { response } = require("express")
 var Site = require("../models/site_model")
 
-  //enrégistrer un utilisateur dans la bd
+  //enrégistrer un site dans la bd
 exports.create = (request, response)=>{
     if(!request.body){
         response.status(400).send('Valeurs vide')
         return
     }
-     //nouvel utilisateur
+     //nouvel site
      const site = new Site({
         _id: new mongoose.Types.ObjectId,
         name : request.body.name, 
@@ -21,7 +21,7 @@ exports.create = (request, response)=>{
         activity_id : request.body.activity_id,
     })
 
-    //sauvegarder l'utilisateur dans la db
+    //sauvegarder le site dans la db
     site
         .save()
         .then(data=>{
@@ -44,13 +44,13 @@ exports.find = (request, response)=>{
             response.status(500).send("il y'a erreur")
         })
 }
-//chercher un utilisateur par son identifiant
+//chercher un site par son identifiant
 exports.findOne= async (request, response)=>{
-    //vérifier si l'identifiant a été précisé
+    //vérifier si leidentifiant a été précisé
     if(!request?.params?._id){
         return response.status(400).send('erreur')
        }
-    //rechercher l'utilisateur correspondant à l'id
+    //rechercher le site correspondant à leid
        const site = await Site.findOne({_id:request.params._id})
        if(!site){
         response.send('No exist')
@@ -60,16 +60,16 @@ exports.findOne= async (request, response)=>{
 }
 //mise à jour
 exports.update= async (request, response)=>{
-    //vérifier si l'identifiant a été précisé
+    //vérifier si leidentifiant a été précisé
    if(!request?.params?._id){
     return response.status(400).send('erreur')
    }
-   // rechercher l'utilisateur correspondante à l'id
+   // rechercher le site correspondante à leid
    const site = await Site.findOne({ _id:request.params. _id}).exec()
    if(!site){
     response.send('No exist')
    }else{
-    //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
+    //récupérer les données de la requête et modifier les données de le site trouvée plus haut
     site.name = request.body.name, 
     site.featuredImage = request.body.featuredImage, 
     site.excerpt = request.body.excerpt, 
@@ -84,7 +84,7 @@ exports.update= async (request, response)=>{
     response.send(resultat)
    }
 }
-//supprimer un utilisateur
+//supprimer un site
 exports.delete= async (request, response)=>{
     if(!request?.params?._id){
         return response.status(400).send('erreur')

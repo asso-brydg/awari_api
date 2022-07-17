@@ -1,10 +1,10 @@
 const express = require("express");
-require("./src/database/connection");
+//require("./src/database/connection");
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(require("./src/routers/routes"))
+//app.use(require("./src/routers/routes"))
 const port = 3000;
 
 

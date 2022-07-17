@@ -2,7 +2,7 @@ const { response } = require("express")
 const mongoose = require("mongoose")
 var Activity = require("../models/activity_model")
 
-  //enrégistrer une ville dans bd
+  //enrégistrer une activité dans bd
 exports.create = (request, response)=>{
     if(!request.body){
         response.status(400).send('Valeurs vide')
@@ -11,7 +11,7 @@ exports.create = (request, response)=>{
 
     //TODO- Implémenter les vérification des données 
     //TODO- Compléter les autres attributs dans le constructeur
-     //nouvelles activitiesegories
+     //nouvelles activités
      const activity = new Activity({
         _id: new mongoose.Types.ObjectId,
         name:request.body.name, 
@@ -32,7 +32,7 @@ exports.create = (request, response)=>{
         vehicleIsAvailable:request.body.vehicleIsAvailable
     })
 
-    //sauvegarder la activitiesegorie dans la db
+    //sauvegarder l'activité dans la db
     activity
         .save()
         .then(data=>{
@@ -44,9 +44,9 @@ exports.create = (request, response)=>{
         })
 
 }
-//afficher la liste des activitieségories
+//afficher la liste des activités
 exports.find = (request, response)=>{
-    //rechercher la activitiesegorie
+    //rechercher l'activité
         Activity.find()
         .then(Activity=>{
             //afficher le resultat de la recherche
@@ -56,13 +56,13 @@ exports.find = (request, response)=>{
             response.status(500).send("il y'a erreur")
         })
 }
-//chercher une activitieségorie par son identifiant
+//chercher une activité par son identifiant
 exports.findOne= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
     if(!request?.params?._id){
         return response.status(400).send('erreur')
        }
-    //rechercher la activitieségorie correspondant à l'id
+    //rechercher l'activité correspondant à l'id
        const activity = await Activity.findOne({ _id:request.params._id})
        if(!activity){
         response.send('No exist')
@@ -76,7 +76,7 @@ exports.search= async (request, response)=>{
     // if(!request?.params?._id){
     //     return response.status(400).send('erreur')
     //    }
-    //rechercher la activitieségorie correspondant à l'id
+    //rechercher l'activité correspondant à l'id
     const req = request.body.index
     console.log(req)
     Activity
@@ -108,12 +108,12 @@ exports.update= async (request, response)=>{
    if(!request?.params?._id){
     return response.status(400).send('erreur')
    }
-   // rechercher la activitieségorie correspondante à l'id
+   // rechercher l'activité correspondante à l'id
    const activity = await Activity.findOne({ _id:request.params._id}).exec()
    if(!activity){
     response.send('No exist')
    }else{
-    //récupérer les données de la requête et modifier les données de la activitieségorie trouvée plus haut
+    //récupérer les données de la requête et modifier les données de l'activité trouvée plus haut
     activity.name = request.body.name, 
     activity.excerpt = request.body.excerpt, 
     activity.description = request.body.description, 
@@ -135,7 +135,7 @@ exports.update= async (request, response)=>{
     response.send(resultat)
    }
 }
-//supprimer une activitieségorie
+//supprimer une activité
 exports.delete= async (request, response)=>{
     if(!request?.params?._id){
         return response.status(400).send('erreur')

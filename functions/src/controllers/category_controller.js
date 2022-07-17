@@ -1,7 +1,7 @@
 const { response } = require("express")
 var Category = require("../models/category_model")
 
-  //enrégistrer une ville dans bd
+  //enrégistrer une catégorie dans bd
 exports.create = (request, response)=>{
     if(!request.body){
         response.status(400).send('Valeurs vide')
@@ -18,7 +18,7 @@ exports.create = (request, response)=>{
         tags:request.body.tags
     })
 
-    //sauvegarder la categorie dans la db
+    //sauvegarder la catégorie dans la db
    category
         .save()
         .then(data=>{
@@ -31,7 +31,7 @@ exports.create = (request, response)=>{
 }
 //afficher la liste des catégories
 exports.find = (request, response)=>{
-    //rechercher la categorie
+    //rechercher la catégorie
        Category.find()
         .then(Cat=>{
             //afficher le resultat de la recherche

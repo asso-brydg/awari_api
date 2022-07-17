@@ -1,13 +1,13 @@
 const { response } = require("express")
 var Experience = require("../models/experience_model")
 
-  //enrégistrer un utilisateur dans la bd
+  //enrégistrer  une expérience dans la bd
 exports.create = (request, response)=>{
     if(!request.body){
         response.status(400).send('Valeurs vide')
         return
     }
-     //nouvel utilisateur
+     //nouvelle expérience
      const experience = new Experience({
      _id: new mongoose.Types.ObjectId,
     name : request.body.name, 
@@ -29,7 +29,7 @@ exports.create = (request, response)=>{
     vehicleIsAvailable : request.body.vehicleIsAvailable,
     })
 
-    //sauvegarder l'utilisateur dans la db
+    //sauvegarder l'expérience dans la db
     experience
         .save()
         .then(data=>{
@@ -52,13 +52,13 @@ exports.find = (request, response)=>{
             response.status(500).send("il y'a erreur")
         })
 }
-//chercher un utilisateur par son identifiant
+//chercher  une expérience par son identifiant
 exports.findOne= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
     if(!request?.params?._id){
         return response.status(400).send('erreur')
        }
-    //rechercher l'utilisateur correspondant à l'id
+    //rechercher l'expérience correspondant à l'id
        const experience = await Experience.findOne({_id:request.params._id})
        if(!experience){
         response.send('No exist')
@@ -72,12 +72,12 @@ exports.update= async (request, response)=>{
    if(!request?.params?._id){
     return response.status(400).send('erreur')
    }
-   // rechercher l'utilisateur correspondante à l'id
+   // rechercher l'expérience correspondante à l'id
    const experience = await Experience.findOne({ _id:request.params._id}).exc()
    if(!experience){
     response.send('No exist')
    }else{
-    //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
+    //récupérer les données de la requête et modifier les données de l'expérience trouvée plus haut
     experience.name = request.body.name, 
     experience.departureDate = request.body.departureDate, 
     experience.excerpt = request.body.excerpt, 
@@ -100,7 +100,7 @@ exports.update= async (request, response)=>{
     response.send(resultat)
    }
 }
-//supprimer un utilisateur
+//supprimer  une expérience
 exports.delete= async (request, response)=>{
     if(!request?.params?._id){
         return response.status(400).send('erreur')

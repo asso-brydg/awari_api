@@ -1,5 +1,6 @@
 const { response } = require("express")
 var  City = require("../models/city_model")
+var Country = require("../models/country_model")
 
  //enrégistrer une ville dans bd
 exports.create = (request, response)=>{
@@ -18,8 +19,12 @@ exports.create = (request, response)=>{
       country_id : request.body.country_id,
     })
 
+
+    country_search = Country.findOne({code:City.country_id})
+    console.log(country_id)
     //sauvergarder une ville dans la bd
-     city
+   if(country_search){
+        city
         .save()
         .then(data=>{
             response.send(data)
@@ -27,6 +32,9 @@ exports.create = (request, response)=>{
         .catch(err=>{
             response.status(500).send(err)
         })
+   }else{
+    response.send("Le pays n'existe pas")
+   }
 
 }
 

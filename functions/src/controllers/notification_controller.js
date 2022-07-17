@@ -1,13 +1,13 @@
 const { response } = require("express")
 var Notification = require("../models/notification_model")
 
-  //enrégistrer une ville dans bd
+  //enrégistrer une notification dans bd
 exports.create = (request, response)=>{
     if(!request.body){
         response.status(400).send('Valeurs vide')
         return
     }
-     //nouvelles notifsegories
+     //nouvelles notifications
      const notification = new Notification({
         _id: new mongoose.Types.ObjectId,
         title:request.body.title, 
@@ -16,7 +16,7 @@ exports.create = (request, response)=>{
         sender_id:request.body.sender_id
     })
 
-    //sauvegarder la notifsegorie dans la db
+    //sauvegarder la notification dans la db
     notification
         .save()
         .then(data=>{
@@ -27,9 +27,9 @@ exports.create = (request, response)=>{
         })
 
 }
-//afficher la liste des notifss
+//afficher la liste des notification
 exports.find = (request, response)=>{
-    //rechercher la notifsegorie
+    //rechercher la notification
         Notification.find()
         .then(Notification=>{
             //afficher le resultat de la recherche

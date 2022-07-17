@@ -24,6 +24,8 @@ route.get('/jacques', JacqueController.index)
 
 
 //Routes pour le pays
+//route.get('/countries/search',ActivitiesController.search)
+
 route.post('/countries', CountryController.create)
 
 route.put('/countries/update/:_id', CountryController.update)
@@ -36,15 +38,15 @@ route.get('/countries/:_id', CountryController.findOne)
 
 
 //Routes pour ville
-route.post('/ cities', CityController.create)
+route.post('/cities', CityController.create)
 
-route.put('/ cities/update/:_id', CityController.update)
+route.put('/cities/update/:_id', CityController.update)
 
-route.delete('/ cities/delete/:_id', CityController.delete)
+route.delete('/cities/delete/:_id', CityController.delete)
 
-route.get('/ cities/index', CityController.find)
+route.get('/cities/index', CityController.find)
 
-route.get('/ cities/:_id', CityController.findOne)
+route.get('/cities/:_id', CityController.findOne)
 
 
 //Routes pour catégories
@@ -71,7 +73,7 @@ route.get('/users/index',UserController.find)
 route.get('/users/: _id',UserController.findOne)
 
 
-//Routes pour utilisateurs
+//Routes pour notifications
 route.post('/notifications',NotificationController.create)
 
 route.put('/notifications/update/:_id',NotificationController.update)

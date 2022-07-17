@@ -1,13 +1,13 @@
 const { response } = require("express")
 var Reservation = require("../models/reservation_model")
 
-  //enrégistrer un utilisateur dans la bd
+  //enrégistrer une reservation dans la bd
 exports.create = (request, response)=>{
     if(!request.body){
         response.status(400).send('Valeurs vide')
         return
     }
-     //nouvel utilisateur
+     //nouvel  reservation
      const reservation = new Reservation({
         _id: new mongoose.Types.ObjectId,
         meetingPlace : request.body.meetingPlace, 
@@ -20,7 +20,7 @@ exports.create = (request, response)=>{
         tripCanceled : request.body.tripCanceled,
     })
 
-    //sauvegarder l'utilisateur dans la db
+    //sauvegarder la reservation dans la db
     reservation
         .save()
         .then(data=>{
@@ -43,13 +43,13 @@ exports.find = (request, response)=>{
             response.status(500).send("il y'a erreur")
         })
 }
-//chercher un utilisateur par son identifiant
+//chercher une reservation par son identifiant
 exports.findOne= async (request, response)=>{
     //vérifier si l'identifiant a été précisé
     if(!request?.params?._id){
         return response.status(400).send('erreur')
        }
-    //rechercher l'utilisateur correspondant à l'id
+    //rechercher la reservation correspondant à l'id
        const reservation = await Reservation.findOne({_id:request.params._id})
        if(!reservation){
         response.send('No exist')
@@ -63,12 +63,12 @@ exports.update= async (request, response)=>{
    if(!request?.params?._id){
     return response.status(400).send('erreur')
    }
-   // rechercher l'utilisateur correspondante à l'id
+   // rechercher la reservation correspondante à l'id
    const reservation = await Reservation.findOne({ _id:request.params._id})
    if(!reservation){
     response.send('No exist')
    }else{
-    //récupérer les données de la requête et modifier les données de l'utilisateur trouvée plus haut
+    //récupérer les données de la requête et modifier les données de la reservation trouvée plus haut
     reservation.meetingPlace = request.body.meetingPlace, 
     reservation.price = request.body.price, 
     reservation.numberPersonne = request.body.numberPersonne, 
@@ -82,7 +82,7 @@ exports.update= async (request, response)=>{
     response.send(resultat)
    }
 }
-//supprimer un utilisateur
+//supprimer une reservation
 exports.delete= async (request, response)=>{
     if(!request?.params?._id){
         return response.status(400).send('erreur')
