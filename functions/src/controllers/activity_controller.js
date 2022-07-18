@@ -87,7 +87,6 @@ exports.search= async (request, response)=>{
     .sort({ score : { $meta : 'textScore' } })
     .exec(function(err, results) {
         response.send(results);
-        console.log(results)
     });
 
 

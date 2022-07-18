@@ -41,7 +41,7 @@ route.get('/countries/:_id', CountryController.findOne)
 
 
 //Routes pour ville
-route.get('/activities/search',CityController.search)
+route.get('/ville/search',CityController.search)
 
 route.post('/cities', CityController.create)
 
@@ -55,7 +55,7 @@ route.get('/cities/:_id', CityController.findOne)
 
 
 //Routes pour catégories
-route.get('/activities/search',CategoryController.search)
+route.get('/categories/search',CategoryController.search)
 
 route.post('/categories',CategoryController.create)
 
@@ -107,7 +107,7 @@ route.get('/activities/:_id',ActivitiesController.findOne)
 
 
 //Routes pour les expériences
-route.get('/activities/search',ExperienceController.search)
+route.get('/experiences/search',ExperienceController.search)
 
 route.post('/experiences',ExperienceController.create)
 
@@ -134,7 +134,7 @@ route.get('/reservations/:_id',ReservationController.findOne)
 
 
 //Routes pour les sites
-route.get('/activities/search',SiteController.search)
+route.get('/sites/search',SiteController.search)
 
 route.post('/sites',SiteController.create)
 
