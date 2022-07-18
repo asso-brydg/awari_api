@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const swaggerJSDoc = require("swagger-jsdoc");
+
 
 const UserSchema = new mongoose.Schema({
 

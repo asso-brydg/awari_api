@@ -10,6 +10,8 @@ const ExperienceController = require("../controllers/experience_controller")
 const ReservationController = require("../controllers/reservation_controller")
 const SiteController = require("../controllers/site_controller")
 const JacqueController = require("../controllers/jacque_controller")
+const swaggerUi = require("swagger-ui-express")
+const swaggerDoc = require("../swagger/swaggerDoc");
 
 
 
@@ -18,13 +20,14 @@ const JacqueController = require("../controllers/jacque_controller")
 route.get('/', (request, response) => {
     response.send("Good for now and go dev creating dev branch");
 })
+route.get('/docs', swaggerUi.serve,swaggerUi.setup(swaggerDoc))
 
 route.post('/jacques', JacqueController.create)
 route.get('/jacques', JacqueController.index)
 
 
 //Routes pour le pays
-//route.get('/countries/search',ActivitiesController.search)
+route.get('/countries/search',CountryController.search)
 
 route.post('/countries', CountryController.create)
 
@@ -38,6 +41,8 @@ route.get('/countries/:_id', CountryController.findOne)
 
 
 //Routes pour ville
+route.get('/activities/search',CityController.search)
+
 route.post('/cities', CityController.create)
 
 route.put('/cities/update/:_id', CityController.update)
@@ -50,6 +55,8 @@ route.get('/cities/:_id', CityController.findOne)
 
 
 //Routes pour catégories
+route.get('/activities/search',CategoryController.search)
+
 route.post('/categories',CategoryController.create)
 
 route.put('/categories/update/: _id',CategoryController.update)
@@ -88,7 +95,6 @@ route.get('/notifications/:_id',NotificationController.findOne)
 //Routes pour les activités
 route.get('/activities/search',ActivitiesController.search)
 
-
 route.post('/activities',ActivitiesController.create)
 
 route.put('/activities/update/:_id',ActivitiesController.update)
@@ -101,6 +107,8 @@ route.get('/activities/:_id',ActivitiesController.findOne)
 
 
 //Routes pour les expériences
+route.get('/activities/search',ExperienceController.search)
+
 route.post('/experiences',ExperienceController.create)
 
 route.put('/experiences/update/:_id',ExperienceController.update)
@@ -126,6 +134,8 @@ route.get('/reservations/:_id',ReservationController.findOne)
 
 
 //Routes pour les sites
+route.get('/activities/search',SiteController.search)
+
 route.post('/sites',SiteController.create)
 
 route.put('/sites/update/:_id',SiteController.update)

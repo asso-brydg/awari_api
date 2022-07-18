@@ -1,7 +1,6 @@
 const functions = require("firebase-functions");
 require("./src/database/connection");
-
-
+const swaggerUi = require("swagger-ui-express")
 const express = require("express")
 const cors = require("cors")
 
@@ -21,6 +20,9 @@ api.get("/test", (request, response)=>{
 });
 
 
+
+
+ 
 
 
 

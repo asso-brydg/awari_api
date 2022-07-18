@@ -56,6 +56,23 @@ exports.findOne = async(request, response) => {
     }
 }
 
+//rechercher un groupe de documents grâce à des indexes
+
+exports.search= async (request, response)=>{
+    const req = request.body.index
+    console.log(req)
+    Country
+    .find(
+        { $text : { $search : req } }, 
+        { score : { $meta: "textScore" } }
+    )
+    .sort({ score : { $meta : 'textScore' } })
+    .exec(function(err, results) {
+        response.send(results);
+    });
+}
+
+
 exports.update = async(request, response) => {
     if (!request ?.params ?.code) {
         return response.status(400).send('erreur')

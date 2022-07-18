@@ -87,17 +87,10 @@ exports.search= async (request, response)=>{
     .sort({ score : { $meta : 'textScore' } })
     .exec(function(err, results) {
         response.send(results);
+        console.log(results)
     });
 
 
-
-
-    //    const activity = await Activity.findOne({ _id:request.params._id})
-    //    if(!activity){
-    //     response.send('No exist')
-    //    }else{
-    //     response.send(activity)
-    //    }
 }
 
 

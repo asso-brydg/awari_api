@@ -63,6 +63,24 @@ exports.findOne= async (request, response)=>{
         response.send( city)
        }
 }
+
+//rechercher un groupe de documents grâce à des indexes
+
+exports.search= async (request, response)=>{
+    const req = request.body.index
+    console.log(req)
+    City
+    .find(
+        { $text : { $search : req } }, 
+        { score : { $meta: "textScore" } }
+    )
+    .sort({ score : { $meta : 'textScore' } })
+    .exec(function(err, results) {
+        response.send(results);
+    });
+}
+
+
 //mise à jour
 exports.update= async (request, response)=>{
         //vérifier si l'identifiant a été précisé

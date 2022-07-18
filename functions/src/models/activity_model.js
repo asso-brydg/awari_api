@@ -80,7 +80,7 @@ const ActivtySchema = new mongoose.Schema({
 // ActivtySchema.index({'loc': '2d'});
 
 
-ActivtySchema.index({name: 'text', description: "text", tags:"text", excerpt:"text", description:"text"});
+ActivtySchema.index({name: 'text', tags:"text", excerpt:"text", description:"text"});
 
 
 module.exports = mongoose.model("activities", ActivtySchema);
