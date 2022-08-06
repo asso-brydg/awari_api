@@ -147,4 +147,27 @@ route.get('/sites/index',SiteController.find)
 route.get('/sites/:_id',SiteController.findOne)
 
 
+
+//test routes 
+route.get('/health/sync', () => {
+    return "okay";
+})
+
+route.get('/health/async', async (request, response) => {
+    response.send("okay");
+})
+
+route.get('/item/:hash', async (request, response) => {
+    
+})
+
+route.get('/item', async (request, response) => {
+    
+})
+
+route.get('/item', async (request, response) => {
+    
+})
+
+
 module.exports=route

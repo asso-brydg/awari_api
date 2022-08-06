@@ -39,7 +39,7 @@ const ActivtySchema = new mongoose.Schema({
         type: Date,
     },
     meetingAdress: {
-        type: Date,
+        type: String,
     },
     price:{
         type:Number,
@@ -47,18 +47,20 @@ const ActivtySchema = new mongoose.Schema({
     city_id:{
         type:String,
     },
-    plan:{
+   /* plan:{
         type:String,
-    },
+    },*/
     //Convertir en heure ou en jour 
     duration:{
         type:Number,
     },
     stories:{
         type:[String],
+        default:Image
     },
     note:{
         type:Number,
+        required:false
     },
     vehicleIsAvailable:{
         type:Boolean,

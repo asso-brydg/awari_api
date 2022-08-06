@@ -6,7 +6,10 @@
     "shell": "firebase functions:shell",
     "start": "nodemon  ./index.js",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "test": "mocha ./src/tests/*.js",
+    "test:watch": "mocha --watch ./src/tests/*.spec.js",
+    "coverage": "nyc --reporter=text npm test"
   },
   "engines": {
     "node": "16"
@@ -22,8 +25,15 @@
     "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
     "firebase-functions-test": "^0.2.0",
-    "nodemon": "^2.0.19"
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.19",
+    "nyc": "^15.1.0",
+    "rewire": "^6.0.0",
+    "sinon": "^14.0.0",
+    "sinon-chai": "^3.7.0",
+    "supertest": "^6.2.4"
   },
   "private": true
 }
