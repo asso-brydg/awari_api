@@ -56,7 +56,6 @@ const ActivtySchema = new mongoose.Schema({
     },
     stories:{
         type:[String],
-        default:Image
     },
     note:{
         type:Number,
