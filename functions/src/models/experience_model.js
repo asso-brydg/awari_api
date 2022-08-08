@@ -46,7 +46,7 @@ const ExperienceSchema = new mongoose.Schema({
         required:false
     },
     meetingAdress: {
-        type: Date,
+        type: String,
     },
      city_id:{
         type:[String],
@@ -59,6 +59,10 @@ const ExperienceSchema = new mongoose.Schema({
     activity_id:{
         type:[String],
         required:false
+    },
+    duration:{
+        type: String, 
+        require:false
     },
     vehicleIsAvailable:{
         type:Boolean,
