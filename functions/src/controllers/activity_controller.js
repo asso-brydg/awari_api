@@ -3,8 +3,8 @@ const mongoose = require("mongoose")
 var Activity = require("../models/activity_model")
 
   //enrégistrer une activité dans bd
-exports.create = (activityObject)=>{
-    if(!activityObject){
+exports.create = (request, response)=>{
+    if(!request.body){
         response.status(400).send('Valeurs vide')
         return
     }
@@ -14,22 +14,22 @@ exports.create = (activityObject)=>{
      //nouvelles activités
      const activity = new Activity({
         _id: new mongoose.Types.ObjectId,
-        name:activityObject.name, 
-        excerpt:activityObject.excerpt, 
-        description:activityObject.description, 
-        featuredImage:activityObject.featuredImage, 
-        location:activityObject.location, 
-        gallery:activityObject.gallery, 
-        tags:activityObject.tags, 
-        departureDate:activityObject.departureDate, 
-        meetingAdress:activityObject.meetingAdress, 
-        price:activityObject.price, 
-        city_id:activityObject. city_id, 
-       // plan:activityObject. plan, 
-        duration:activityObject.duration,
-        stories:activityObject.stories,
-        note:activityObject.note,
-        vehicleIsAvailable:activityObject.vehicleIsAvailable
+        name:request.body.name, 
+        excerpt:request.body.excerpt, 
+        description:request.body.description, 
+        featuredImage:request.body.featuredImage, 
+        location:request.body.location, 
+        gallery:request.body.gallery, 
+        tags:request.body.tags, 
+        departureDate:request.body.departureDate, 
+        meetingAdress:request.body.meetingAdress, 
+        price:request.body.price, 
+        city_id:request.body. city_id, 
+       // plan:request.body. plan, 
+        duration:request.body.duration,
+        stories:request.body.stories,
+        note:request.body.note,
+        vehicleIsAvailable:request.body.vehicleIsAvailable
     })
 
     //sauvegarder l'activité dans la db
