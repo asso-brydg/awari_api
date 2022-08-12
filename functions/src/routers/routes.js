@@ -59,7 +59,7 @@ route.get('/categories/search',CategoryController.search)
 
 route.post('/categories',CategoryController.create)
 
-route.put('/categories/update/: _id',CategoryController.update)
+route.put('/categories/update/:_id',CategoryController.update)
 
 route.delete('/categories/delete/: _id',CategoryController.delete)
 
@@ -71,13 +71,13 @@ route.get('/categories/: _id',CategoryController.findOne)
 //Routes pour utilisateurs
 route.post('/users',UserController.create)
 
-route.put('/users/update/: _id',UserController.update)
+route.put('/users/update/:_id',UserController.update)
 
-route.delete('/users/delete/: _id',UserController.delete)
+route.delete('/users/delete/:_id',UserController.delete)
 
 route.get('/users/index',UserController.find)
 
-route.get('/users/: _id',UserController.findOne)
+route.get('/users/:_id',UserController.findOne)
 
 
 //Routes pour notifications

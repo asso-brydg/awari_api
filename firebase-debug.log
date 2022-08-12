@@ -1,0 +1,52 @@
+[debug] [2022-08-12T07:46:17.976Z] ----------------------------------------------------------------------
+[debug] [2022-08-12T07:46:17.985Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HP\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-08-12T07:46:17.986Z] CLI Version:   11.4.2
+[debug] [2022-08-12T07:46:17.987Z] Platform:      win32
+[debug] [2022-08-12T07:46:17.987Z] Node Version:  v16.16.0
+[debug] [2022-08-12T07:46:17.989Z] Time:          Fri Aug 12 2022 07:46:17 GMT+0000 (heure moyenne de Greenwich)
+[debug] [2022-08-12T07:46:17.991Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-08-12T07:46:18.217Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2022-08-12T07:46:18.218Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2022-08-12T07:46:18.219Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2022-08-12T07:46:18.219Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2022-08-12T07:46:18.220Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"function"}
+[debug] [2022-08-12T07:46:18.221Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"destination"}
+[debug] [2022-08-12T07:46:18.221Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"destination"}
+[debug] [2022-08-12T07:46:18.221Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"destination"}
+[debug] [2022-08-12T07:46:18.222Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2022-08-12T07:46:18.222Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2022-08-12T07:46:18.223Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2022-08-12T07:46:18.223Z] Object ".hosting.rewrites[0]" in "firebase.json" has unknown property: {"additionalProperty":"source"}
+[debug] [2022-08-12T07:46:18.223Z] Field ".hosting.rewrites[0]" in "firebase.json" is possibly invalid: should match some schema in anyOf
+[debug] [2022-08-12T07:46:18.223Z] Field ".hosting" in "firebase.json" is possibly invalid: should be array
+[debug] [2022-08-12T07:46:18.224Z] Field ".hosting" in "firebase.json" is possibly invalid: should match some schema in anyOf
+[debug] [2022-08-12T07:46:18.241Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-08-12T07:46:18.242Z] > authorizing via signed-in user (jagbegbo@gmail.com)
+[debug] [2022-08-12T07:46:18.243Z] [iam] checking project awari-3fc51 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-08-12T07:46:18.251Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/awari-3fc51:testIamPermissions [none]
+[debug] [2022-08-12T07:46:18.251Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/awari-3fc51:testIamPermissions x-goog-quota-user=projects/awari-3fc51
+[debug] [2022-08-12T07:46:18.251Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/awari-3fc51:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-08-12T07:46:20.491Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/awari-3fc51:testIamPermissions 200
+[debug] [2022-08-12T07:46:20.492Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/awari-3fc51:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-08-12T07:46:20.492Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/awari-3fc51/serviceAccounts/awari-3fc51@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-08-12T07:46:20.492Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/awari-3fc51/serviceAccounts/awari-3fc51@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-08-12T07:46:22.669Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/awari-3fc51/serviceAccounts/awari-3fc51@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-08-12T07:46:22.669Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/awari-3fc51/serviceAccounts/awari-3fc51@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-08-12T07:46:22.672Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/awari-3fc51 [none]
+[debug] [2022-08-12T07:46:27.278Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/awari-3fc51 200
+[debug] [2022-08-12T07:46:27.278Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/awari-3fc51 {"projectId":"awari-3fc51","projectNumber":"617929026568","displayName":"Awari","name":"projects/awari-3fc51","resources":{"hostingSite":"awari-3fc51","storageBucket":"awari-3fc51.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_d08ff63d-2975-40d2-91f1-5812915975b4"}
+[info] 
+[info] === Deploying to 'awari-3fc51'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2022-08-12T07:46:27.286Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/awari-3fc51 [none]
+[debug] [2022-08-12T07:46:28.331Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/awari-3fc51 200
+[debug] [2022-08-12T07:46:28.332Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/awari-3fc51 {"projectId":"awari-3fc51","projectNumber":"617929026568","displayName":"Awari","name":"projects/awari-3fc51","resources":{"hostingSite":"awari-3fc51","storageBucket":"awari-3fc51.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_d08ff63d-2975-40d2-91f1-5812915975b4"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-08-12T07:46:28.339Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/awari-3fc51/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-08-12T07:46:28.341Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/awari-3fc51/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-08-12T07:46:28.344Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/awari-3fc51/services/cloudbuild.googleapis.com [none]
+[debug] [2022-08-12T07:46:28.346Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/awari-3fc51/services/artifactregistry.googleapis.com [none]

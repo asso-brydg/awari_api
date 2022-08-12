@@ -50,10 +50,10 @@ exports.findOne= async (request, response)=>{
        }
     //rechercher la catégorie correspondant à l'id
        const category = awaitCategory.findOne({_id:request.params._id})
-       if(category){
+       if(!category){
         response.send('No exist')
        }else{
-        response.send(cat)
+        response.send(category)
        }
 }
   
@@ -101,7 +101,7 @@ exports.delete= async (request, response)=>{
     if(!request?.params?._id){
         return response.status(400).send('erreur')
     }
-    const category = awaitCategory.findOne ({ _id:request.params._id})
+    const category = await Category.findOne ({ _id:request.params._id})
     if(!category){
         response.send("no exist")
     }else{
