@@ -1,4 +1,5 @@
 const { response } = require("express")
+const mongoose = require("mongoose")
 var Category = require("../models/category_model")
 
   //enrégistrer une catégorie dans bd
@@ -8,8 +9,8 @@ exports.create = (request, response)=>{
         return
     }
      //nouvelles categories
-     const category = newCategory({
-         _id: new mongoose.Types.ObjectId,
+     const category = new Category({
+        _id: new mongoose.Types.ObjectId,
         name:request.body.name, 
         featuredImage:request.body.featuredImage, 
         description:request.body.description, 

@@ -1,5 +1,6 @@
 const { response } = require("express")
 var  City = require("../models/city_model")
+const mongoose = require("mongoose")
 var Country = require("../models/country_model")
 
  //enrégistrer une ville dans bd
