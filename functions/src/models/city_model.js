@@ -18,8 +18,9 @@ const CitySchema = new mongoose.Schema({
         type:[String],
     },
     country_id:{
-        type:String,
-        required:true
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'countries',
+        required: false
     },
    createdAt: {
         type: Date,

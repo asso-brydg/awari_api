@@ -8,10 +8,6 @@ exports.create = (request, response)=>{
         response.status(400).send('Valeurs vide')
         return
     }
-
-    //TODO- Implémenter les vérification des données 
-    //TODO- Compléter les autres attributs dans le constructeur
-     //nouvelles activités
      const activity = new Activity({
         _id: new mongoose.Types.ObjectId,
         name:request.body.name, 
@@ -25,7 +21,6 @@ exports.create = (request, response)=>{
         meetingAdress:request.body.meetingAdress, 
         price:request.body.price, 
         city_id:request.body. city_id, 
-       // plan:request.body. plan, 
         duration:request.body.duration,
         stories:request.body.stories,
         note:request.body.note,
@@ -87,10 +82,7 @@ exports.search= async (request, response)=>{
     .sort({ score : { $meta : 'textScore' } })
     .exec(function(err, results) {
         response.send(results);
-
     });
-
-
 }
 
 

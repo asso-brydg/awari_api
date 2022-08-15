@@ -49,7 +49,7 @@ exports.findOne= async (request, response)=>{
         return response.status(400).send('erreur')
        }
     //rechercher la catégorie correspondant à l'id
-       const category = awaitCategory.findOne({_id:request.params._id})
+       const category = await Category.findOne({_id:request.params._id})
        if(!category){
         response.send('No exist')
        }else{
@@ -80,7 +80,7 @@ exports.update= async (request, response)=>{
     return response.status(400).send('erreur')
    }
    // rechercher la catégorie correspondante à l'id
-   const category = awaitCategory.findOne({_id:request.params._id}).exec()
+   const category = await Category.findOne({_id:request.params._id}).exec()
    if(!category){
     response.send('No exist')
    }else{
@@ -92,7 +92,7 @@ exports.update= async (request, response)=>{
     category.gallery = request.body.gallery,
     category.tags = request.body.tags,
     category.updatedAt = new Date()
-    const resultat = awaitcategory.save()
+    const resultat = await category.save()
     response.send(resultat)
    }
 }

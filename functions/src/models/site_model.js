@@ -31,11 +31,13 @@ const SiteSchema = new mongoose.Schema({
         required:false
     },
     city_id:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'cities',
         required:false
     },
     activity_id:{
-        type:[String],
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:'activities',
         required:false
     },
    createdAt: {

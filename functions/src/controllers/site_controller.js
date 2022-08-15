@@ -33,7 +33,7 @@ exports.create = (request, response)=>{
         })
 
 }
-//afficher la liste des utilisateurs
+//afficher la liste des sites
 exports.find = (request, response)=>{
     //rechercher la categorie
         Site.find()
@@ -47,11 +47,11 @@ exports.find = (request, response)=>{
 }
 //chercher un site par son identifiant
 exports.findOne= async (request, response)=>{
-    //vérifier si leidentifiant a été précisé
+    //vérifier si l'identifiant a été précisé
     if(!request?.params?._id){
         return response.status(400).send('erreur')
        }
-    //rechercher le site correspondant à leid
+    //rechercher le site correspondant à l'id
        const site = await Site.findOne({_id:request.params._id})
        if(!site){
         response.send('No exist')

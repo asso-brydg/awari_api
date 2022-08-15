@@ -8,7 +8,6 @@ const ExperienceSchema = new mongoose.Schema({
     },
     departureDate: {
         type: Date,
-        required: false,
     },
     excerpt:{
         type:String,
@@ -48,16 +47,17 @@ const ExperienceSchema = new mongoose.Schema({
     meetingAdress: {
         type: String,
     },
-     city_id:{
-        type:[String],
-        required:false
+    city_id:{
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:'cities',
     },
     stories:{
         type:[String],
         required:false
     },
     activity_id:{
-        type:[String],
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:'activities',
         required:false
     },
     duration:{

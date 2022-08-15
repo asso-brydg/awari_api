@@ -41,7 +41,7 @@ route.get('/countries/:_id', CountryController.findOne)
 
 
 //Routes pour ville
-route.get('/ville/search',CityController.search)
+route.get('/cities/search',CityController.search)
 
 route.post('/cities', CityController.create)
 
@@ -61,11 +61,11 @@ route.post('/categories',CategoryController.create)
 
 route.put('/categories/update/:_id',CategoryController.update)
 
-route.delete('/categories/delete/: _id',CategoryController.delete)
+route.delete('/categories/delete/:_id',CategoryController.delete)
 
 route.get('/categories/index',CategoryController.find)
 
-route.get('/categories/: _id',CategoryController.findOne)
+route.get('/categories/:_id',CategoryController.findOne)
 
 
 //Routes pour utilisateurs

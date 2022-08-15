@@ -5,10 +5,11 @@ const mongoose = require("mongoose")
 exports.create = (request, response) => {
     if (!request.body) {
         response.status(400).send('Valeurs vide');
-        return;
+        return
     }
     //new country
     const country = new Country({
+        _id: new mongoose.Types.ObjectId,
         code: request.body.code,
         name: request.body.name,
         phoneCode: request.body.phoneCode,
@@ -25,9 +26,11 @@ exports.create = (request, response) => {
             response.send(data)
         })
         .catch(err => {
-            response.status[500].send[{
+            console.log(err)
+            response.status(500).send(err)
+           /* response.status[500].send[{
                 message: err.message || "Erreur!!"
-            }]
+            }]*/
         })
 
 }
@@ -47,7 +50,7 @@ exports.findOne = async(request, response) => {
         return response.status(400).send('erreur')
     }
 
-    const country = await Country.findOne({ code: request.params._id })
+    const country = await Country.findOne({ _id: request.params._id })
     console.log(country)
     if (!country) {
         response.send('No exist')
@@ -74,11 +77,11 @@ exports.search= async (request, response)=>{
 
 
 exports.update = async(request, response) => {
-    if (!request ?.params ?.code) {
+    if (!request ?.params ?._id) {
         return response.status(400).send('erreur')
     }
 
-    const country = await Country.findOne({ code: request.params.code }).exec()
+    const country = await Country.findOne({ _id: request.params._id }).exec()
     if (!country) {
         response.send('No exist')
     } else {
@@ -95,10 +98,10 @@ exports.update = async(request, response) => {
     }
 }
 exports.delete = async(request, response) => {
-    if (!request ?.params ?.code) {
+    if (!request?.params?._id) {
         return response.status(400).send('erreur')
     }
-    const country = await Country.findOne({ code: request.params.code }).exec()
+    const country = await Country.findOne({ _id: request.params._id })
     if (!country) {
         response.send("no exist")
     } else {

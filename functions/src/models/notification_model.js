@@ -12,12 +12,14 @@ const NotificationSchema = new mongoose.Schema({
         required: false,
     },
     receiver_id:{
-        type:[String],
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:'user',
         required:false
     },
 
     sender_id:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user',
         required:false
     },
     createdAt: {

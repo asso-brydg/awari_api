@@ -8,7 +8,7 @@ const cors = require("cors")
 const api = express();
 
 api.use(express.json());
-api.use(express.urlencoded());
+api.use(express.urlencoded({extended:true}));
 api.use(cors());
 
 
