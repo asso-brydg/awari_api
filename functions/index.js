@@ -1,6 +1,5 @@
 const functions = require("firebase-functions");
 require("./src/database/connection");
-const swaggerUi = require("swagger-ui-express")
 const express = require("express")
 const cors = require("cors")
 
@@ -16,21 +15,14 @@ api.use(require("./src/routers/routes"))
 
 
 api.get("/test", (request, response)=>{
-    response.send("On va voir !!!!!!!!!!!!!!!!!!!!!");
+    response.send("welcome");
 });
 
 
-
-
- 
 
 
 
 
 //const port = 3001;
 //api.listen(port, () => console.log("server runing"));
-
-
-
-
 exports.api = functions.https.onRequest(api);

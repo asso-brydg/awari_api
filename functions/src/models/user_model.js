@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 const swaggerJSDoc = require("swagger-jsdoc");
 
-
 const UserSchema = new mongoose.Schema({
-
     _id:  mongoose.Schema.Types.ObjectId,
     firstName: {
         type: String,
@@ -50,8 +48,6 @@ const UserSchema = new mongoose.Schema({
     },
 
 })
-
-
 
 
 module.exports = mongoose.model("users", UserSchema);

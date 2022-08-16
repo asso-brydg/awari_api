@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const ActivtySchema = new mongoose.Schema({
-//TODO - Ajouter les options required
     _id:  mongoose.Schema.Types.ObjectId,
     name:{
         type:String,
@@ -38,10 +37,6 @@ const ActivtySchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'cities',
     },
-   /* plan:{
-        type:String,
-    },*/
-    //Convertir en heure ou en jour 
     duration:{
         type:Number,
     },
