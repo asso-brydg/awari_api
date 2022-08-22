@@ -71,7 +71,7 @@ exports.findOne = async (request, response) => {
 //rechercher un groupe de documents grâce à des indexes
 
 exports.search = async (request, response) => {
-    const req = request.body.index
+    const req = request.query.query
     console.log(req)
     Experience
         .find(
