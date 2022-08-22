@@ -85,8 +85,6 @@ exports.search= async (request, response)=>{
     });
 }
 
-
-
 //mise à jour
 exports.update= async (request, response)=>{
     //vérifier si l'identifiant a été précisé

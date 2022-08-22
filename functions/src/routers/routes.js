@@ -14,8 +14,6 @@ const swaggerUi = require("swagger-ui-express")
 const swaggerDoc = require("../swagger/swaggerDoc");
 
 
-
-
 //Home page
 route.get('/', (request, response) => {
     response.send("Good for now and go dev creating dev branch");
